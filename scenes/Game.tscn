@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://p1dxefd286sn"]
+
+[ext_resource type="PackedScene" uid="uid://dbs0504uhstu1" path="res://scenes/knight.tscn" id="1_ibkli"]
+[ext_resource type="Script" uid="uid://ch38u371wx2ij" path="res://scripts/game.gd" id="1_qbsmt"]
+
+[sub_resource type="GDScript" id="GDScript_cpr0p"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wbfu4"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_qbsmt")
+
+[node name="Knight" parent="." instance=ExtResource("1_ibkli")]
+position = Vector2(0, -7)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+script = SubResource("GDScript_cpr0p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 18)
+shape = SubResource("WorldBoundaryShape2D_wbfu4")
