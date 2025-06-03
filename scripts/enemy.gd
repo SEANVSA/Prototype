@@ -3,8 +3,11 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
+var player = null
 
-
+func _ready() -> void:
+	player = get_node("/root/Game/Knight")
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
