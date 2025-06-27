@@ -3,9 +3,14 @@ extends CharacterBody2D
 var player : Player
 
 func _ready() -> void:
-	play_animation("idle")
+	pass
 	
 func set_player_data(_player:Player):
 	player = _player
-func play_animation(anim_name:String):
+	
+func set_animation(anim_name:String):
 	animation.play(anim_name)
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animation.animation == "attack":
+		animation.play("Idle")
