@@ -29,6 +29,7 @@ size = Vector2(1149, 647)
 script = ExtResource("1_cxv17")
 
 [node name="Player" parent="." instance=ExtResource("1_vh257")]
+script = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
