@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d22m6toj8ll6a"]
+[gd_scene load_steps=28 format=3 uid="uid://d22m6toj8ll6a"]
 
 [ext_resource type="Texture2D" uid="uid://bn5ea6rswvyvf" path="res://assets/sprites/CowBoy/CowBoySmokingIdle.png" id="1_ap81s"]
 [ext_resource type="Texture2D" uid="uid://dcha4dexo0rp2" path="res://assets/sprites/CowBoy/CowBoyShoot.png" id="2_k8t10"]
@@ -176,6 +176,8 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap81s"]
+
 [node name="CowBoy" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -184,3 +186,5 @@ animation = &"walk"
 frame_progress = 0.788804
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_ap81s")
