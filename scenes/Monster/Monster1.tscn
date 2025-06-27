@@ -21,7 +21,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 1.0
+"speed": 2.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0rkga"]
@@ -33,7 +33,7 @@ radius = 132.518
 sprite_frames = SubResource("SpriteFrames_s77ft")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.552245
+frame_progress = 0.707613
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0rkga")

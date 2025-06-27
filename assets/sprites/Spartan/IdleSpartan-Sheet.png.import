@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wgw18blade"
-path="res://.godot/imported/HostileAttackReaper-Sheet.png-4ffc1b927cd106f13b0656a468bf5411.ctex"
+uid="uid://bhtu7e5lc54rj"
+path="res://.godot/imported/IdleSpartan-Sheet.png-e2fbdebaa4eef56432553d8e077f4421.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HostileAttackReaper-Sheet.png"
-dest_files=["res://.godot/imported/HostileAttackReaper-Sheet.png-4ffc1b927cd106f13b0656a468bf5411.ctex"]
+source_file="res://assets/sprites/Spartan/IdleSpartan-Sheet.png"
+dest_files=["res://.godot/imported/IdleSpartan-Sheet.png-e2fbdebaa4eef56432553d8e077f4421.ctex"]
 
 [params]
 
