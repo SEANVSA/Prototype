@@ -1,0 +1,126 @@
+[gd_scene load_steps=5 format=3 uid="uid://obhsd6isexhu"]
+
+[ext_resource type="PackedScene" uid="uid://cxwao6r01hk35" path="res://scenes/knight.tscn" id="1_ibkli"]
+[ext_resource type="PackedScene" uid="uid://42y7v8wggb8r" path="res://scenes/Enemy.tscn" id="3_cpr0p"]
+
+[sub_resource type="GDScript" id="GDScript_qbsmt"]
+script/source = "extends Node2D
+
+@onready var knight: CharacterBody2D = $Knight
+@onready var camera_2d: Camera2D = $Camera2D
+var max_x_distance = 25
+var max_y_distance = 1
+var camera_speed = 1
+var zoom = 4
+var is_moving_camera_manually = false
+const EPSILON = 0.01
+const INPUT_DEADZONE = 0.5  # Increased deadzone
+var last_input_vector = Vector2.ZERO
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if has_node(\"Knight\") and has_node(\"Camera2D\"):
+		camera_2d.position = knight.position
+	setZoom(zoom)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	handle_zoom_input()
+	handle_camera_input(delta)
+	follow_knight()
+
+func handle_zoom_input():
+	if Input.is_action_pressed(\"zoom+\"):
+		zoom += 0.005
+		setZoom(zoom)
+	if Input.is_action_pressed(\"zoom-\"):
+		zoom -= 0.005
+		setZoom(zoom)
+	if Input.is_action_pressed(\"zoomReset\"):
+		zoom = 4
+		setZoom(zoom)
+		
+func reset_camera_follow():
+	max_x_distance = 25
+	max_y_distance = 1
+	camera_2d.position = knight.position
+
+func handle_camera_input(delta: float):
+	# Reset manual movement flag
+	is_moving_camera_manually = false
+	# Camera lock
+	if Input.is_action_just_pressed(\"camera_lock\"):
+		reset_camera_follow()
+		return
+		
+	# Handle manual camera movement with deadzone
+	var move_input = get_filtered_input()
+	if move_input != Vector2.ZERO:
+		process_camera_movement(move_input, delta)
+		
+func get_filtered_input() -> Vector2:
+	var raw_input = Input.get_vector(\"move_camera_left\", \"move_camera_right\",\"move_camera_up\", \"move_camera_down\")
+	if abs(raw_input.x) < INPUT_DEADZONE:
+		raw_input.x = 0
+	if abs(raw_input.y) < INPUT_DEADZONE:
+		raw_input.y = 0
+	if (raw_input - last_input_vector).length() > 0.1:
+		print(\"Camera input: \", raw_input)
+		last_input_vector = raw_input
+	return raw_input.normalized() if raw_input != Vector2.ZERO else Vector2.ZERO
+	
+func process_camera_movement(move_input: Vector2, delta: float):
+	is_moving_camera_manually = true
+	max_x_distance = 100
+	max_y_distance = 50
+	
+	var move_speed = camera_speed * delta * 60
+	camera_2d.position += move_input * move_speed
+	
+	# Apply boundaries
+	var x_diff = camera_2d.position.x - knight.position.x
+	var y_diff = camera_2d.position.y - knight.position.y
+	if abs(x_diff) > 100:
+		camera_2d.position.x = knight.position.x + sign(x_diff) * 100
+	if abs(y_diff) > 50:
+		camera_2d.position.y = knight.position.y + sign(y_diff) * 50
+func follow_knight():
+	if is_moving_camera_manually:
+		return
+	if not has_node(\"Knight\") or not has_node(\"Camera2D\"):
+		return
+	var x_diff = camera_2d.position.x - knight.position.x
+	var y_diff = camera_2d.position.y - knight.position.y
+	if x_diff > max_x_distance + EPSILON:
+		camera_2d.position.x = knight.position.x + max_x_distance
+	elif x_diff < -max_x_distance - EPSILON:
+		camera_2d.position.x = knight.position.x - max_x_distance
+	
+	# Y-axis following with epsilon comparison
+	if y_diff > max_y_distance + EPSILON:
+		camera_2d.position.y = knight.position.y + max_y_distance
+	elif y_diff < -max_y_distance - EPSILON:
+		camera_2d.position.y = knight.position.y - max_y_distance
+func setZoom(level: float):
+	camera_2d.zoom = Vector2(level, level)
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wbfu4"]
+
+[node name="Game" type="Node2D"]
+script = SubResource("GDScript_qbsmt")
+
+[node name="Knight" parent="." instance=ExtResource("1_ibkli")]
+position = Vector2(0, -7)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 18)
+shape = SubResource("WorldBoundaryShape2D_wbfu4")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_cpr0p")]
+position = Vector2(45, -5)
