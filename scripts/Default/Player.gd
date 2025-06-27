@@ -13,9 +13,12 @@ func tap_damage() -> float:
 	if randf() < crit_chance:
 		damage_dealt *= crit_multiplier
 	return	damage_dealt
+	
 func upgrade_tap_damage(amount: float):
 	damage += amount
+	
 func upgrade_crit_chance(amount: float):
 	crit_chance += amount
+	
 func upgrade_crit_multiplier(amount: float):
 	crit_multiplier += amount
