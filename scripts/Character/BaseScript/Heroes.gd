@@ -15,4 +15,4 @@ func get_upgrade_cost() -> float:
 
 func upgrade():
 	level += 1
-	damage *= damage_multiplier_per_level # Increase hero's damage
+	damage *= damage_multiplier_per_level

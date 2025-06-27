@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var animation = $AnimatedSprite2D
-var player : Player
+var player : Player = null
 
 func _ready() -> void:
 	pass
