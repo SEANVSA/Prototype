@@ -1,6 +1,7 @@
 class_name Heroes extends Chara
 
 var level: int = 1
+var framePerAttack = 1
 var base_cost: float = 0.0
 var cost_multiplier_per_level: float = 1.1
 var damage_multiplier_per_level: float = 1.1

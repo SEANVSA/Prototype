@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dek8glnu1rmfr"]
+[gd_scene load_steps=21 format=3 uid="uid://dek8glnu1rmfr"]
 
 [ext_resource type="Texture2D" uid="uid://5wgw18blade" path="res://assets/sprites/HostileAttackReaper-Sheet.png" id="1_touis"]
 [ext_resource type="Texture2D" uid="uid://ckpaaa4cti88k" path="res://assets/sprites/HostileIdleReaper-Sheet.png" id="2_au3v1"]
+[ext_resource type="Script" uid="uid://bbysxybrcmmyk" path="res://scripts/Heroes/ReaperHero.gd" id="3_axap5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au3v1"]
 atlas = ExtResource("1_touis")
@@ -96,7 +97,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2iar6")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 12.0
 }, {
@@ -129,7 +130,8 @@ size = Vector2(19, 31)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p1m4r")
 animation = &"attack"
-frame_progress = 0.469871
+autoplay = "idle"
+script = ExtResource("3_axap5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 0.5)
