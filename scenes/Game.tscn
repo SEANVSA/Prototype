@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4fjmqydhsuuo"]
+[gd_scene load_steps=5 format=3 uid="uid://d4fjmqydhsuuo"]
 
 [ext_resource type="PackedScene" uid="uid://dbs0504uhstu1" path="res://scenes/knight.tscn" id="1_ibkli"]
 [ext_resource type="PackedScene" uid="uid://bootwf03r42gn" path="res://scenes/Enemy.tscn" id="3_cpr0p"]
@@ -105,20 +105,6 @@ func setZoom(level: float):
 	camera_2d.zoom = Vector2(level, level)
 "
 
-[sub_resource type="GDScript" id="GDScript_cpr0p"]
-script/source = "extends Camera2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wbfu4"]
 
 [node name="Game" type="Node2D"]
@@ -129,7 +115,6 @@ position = Vector2(0, -7)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-script = SubResource("GDScript_cpr0p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
