@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckh5pf2ixrlhe"]
 
-[ext_resource type="Texture2D" uid="uid://bdcmdiy15ymu5" path="res://assets/sprites/Monster18.png" id="1_iom3g"]
+[ext_resource type="Texture2D" uid="uid://bdcmdiy15ymu5" path="res://assets/sprites/Monster18.png" id="1_nr5dw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtc2v"]
-atlas = ExtResource("1_iom3g")
+atlas = ExtResource("1_nr5dw")
 region = Rect2(0, 0, 480, 480)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mnyyv"]
-atlas = ExtResource("1_iom3g")
+atlas = ExtResource("1_nr5dw")
 region = Rect2(0, 480, 480, 480)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xuggk"]
