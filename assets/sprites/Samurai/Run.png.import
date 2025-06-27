@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs6vluij4jx1h"
-path="res://.godot/imported/world_tileset.png-61a32465f33c3d9d3bfecb75b6485009.ctex"
+uid="uid://brto3k2xg0v0k"
+path="res://.godot/imported/Run.png-594f01b8862cc9f5b111249aaa2f5891.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/world_tileset.png"
-dest_files=["res://.godot/imported/world_tileset.png-61a32465f33c3d9d3bfecb75b6485009.ctex"]
+source_file="res://assets/sprites/Samurai/Run.png"
+dest_files=["res://.godot/imported/Run.png-594f01b8862cc9f5b111249aaa2f5891.ctex"]
 
 [params]
 

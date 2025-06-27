@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ypgkbddkj4n"
-path="res://.godot/imported/Ghost.png-54fdc11a82635d32bb1024992ba2e357.ctex"
+uid="uid://bq7fq76a77r54"
+path="res://.godot/imported/Idle.png-ee6f027963cdfd51a0f181aad4d067da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Ghost.png"
-dest_files=["res://.godot/imported/Ghost.png-54fdc11a82635d32bb1024992ba2e357.ctex"]
+source_file="res://assets/sprites/Samurai/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-ee6f027963cdfd51a0f181aad4d067da.ctex"]
 
 [params]
 

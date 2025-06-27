@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2xyys1h1wo27"
-path="res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex"
+uid="uid://cssc2ss2stnw2"
+path="res://.godot/imported/Attack_3.png-b32066fa0fe1168e33d68870ac38f4cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/knight.png"
-dest_files=["res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex"]
+source_file="res://assets/sprites/Samurai/Attack_3.png"
+dest_files=["res://.godot/imported/Attack_3.png-b32066fa0fe1168e33d68870ac38f4cc.ctex"]
 
 [params]
 
