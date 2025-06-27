@@ -1,26 +1,26 @@
-# File: UpgradePanel.gd
 extends PanelContainer
 
-# Variabel yang akan kita isi dari scene utama
-@export var item_name: String
-@export var item_level: int
-@export var item_description: String
-@export var item_icon: Texture2D
-@export var progress: float # Nilai dari 0.0 sampai 1.0
-@export var action_cost: int
-@export var action_text: String
-@export var action_subtext: String
+@onready var tap_damage_top = $"VBoxContainer/Tap DMG Player/Dmg"
+@onready var coin = $"VBoxContainer/Tap DMG Player/Coin"
+@onready var buyCount = $VBoxContainer/BuyCountBox/BuyCountButton
 
-# Hubungkan Node dari editor ke script ini
-@onready var name_label = $MarginContainer/HBoxContainer/Info/NameLabel
-@onready var level_label = $MarginContainer/HBoxContainer/Info/LevelLabel
-@onready var desc_label = $MarginContainer/HBoxContainer/DescLabel
-@onready var item_icon_rect = $MarginContainer/HBoxContainer/ItemIcon
-@onready var progress_bar = $MarginContainer/HBoxContainer/Info/ProgressBar
-@onready var action_button = $MarginContainer/HBoxContainer/ActionButton
-@onready var cost_label = $MarginContainer/HBoxContainer/ActionButton/VBoxContainer/Cost/CostLabel
-@onready var action_label = $MarginContainer/HBoxContainer/ActionButton/VBoxContainer/ActionLabel
-@onready var sub_action_label = $MarginContainer/HBoxContainer/ActionButton/VBoxContainer/SubActionLabel
+@onready var tap_damage_bottom = $"VBoxContainer/Upgrade 1 Box/Upgrade 1 DPS/UpgradeDPS"
+@onready var progress1 = $"VBoxContainer/Upgrade 1 Box/Upgrae 1 Icon Box/ProgressUpgrade1"
+@onready var price1 = $"VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/Upgrade1Price/Price1"
+@onready var addedDps = $"VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/DPSIncrease 1/DPS"
+@onready var button1 = $"VBoxContainer/Upgrade 1 Box/Upgrade 1 Button"
+
+@onready var crit_mul = $"VBoxContainer/Upgrade 2 Box/Upgrade 2 Chance/UpgradeDPS"
+@onready var progress2 = $"VBoxContainer/Upgrade 2 Box/Upgrae 2 Icon Box/ProgressUpgrade2"
+@onready var price2 = $"VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/Upgrade2Price/Price2"
+@onready var addedMul = $"VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/DPSIncrease 2/DPS 2"
+@onready var button2 = $"VBoxContainer/Upgrade 2 Box/Upgrade 2 Button"
+
+@onready var crit_chance = $"VBoxContainer/Upgrade 3 Box/Upgrade 3 Multy/UpgradeChance"
+@onready var progress3 =$"VBoxContainer/Upgrade 3 Box/Upgrae 3 Icon Box/ProgressUpgrade3"
+@onready var price3 = $"VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/Upgrade3Price/Price3"
+@onready var addedChance = $"VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/ChanceIncrease 1/Chance 1"
+@onready var button3 = $"VBoxContainer/Upgrade 3 Box/Upgrade 3 Button"
 
 # Definisikan sinyal kustom saat tombol ditekan
 signal action_pressed
@@ -28,27 +28,14 @@ signal action_pressed
 func _ready():
 	# Panggil fungsi untuk mengisi data ke UI saat scene siap
 	update_display()
-	action_button.pressed.connect(_on_action_button_pressed)
 
 func update_display():
 	"""Fungsi untuk mengisi semua elemen UI dengan data dari variabel export."""
-	name_label.text = item_name
-	level_label.text = "Lv. " + str(item_level)
-	desc_label.text = item_description
-	item_icon_rect.texture = item_icon
-	progress_bar.value = progress * 100 # ProgressBar biasanya pakai nilai 0-100
 	
-	cost_label.text = str(action_cost)
-	action_label.text = action_text
-	sub_action_label.text = action_subtext
 
 func set_button_disabled(disabled: bool):
 	"""Fungsi untuk mengaktifkan/menonaktifkan tombol."""
-	action_button.disabled = disabled
-	if disabled:
-		action_button.modulate = Color(0.5, 0.5, 0.5, 1) # Beri warna abu-abu
-	else:
-		action_button.modulate = Color(1, 1, 1, 1)
+	
 
 func _on_action_button_pressed():
 	# Saat tombol ditekan, emit sinyal kustom
