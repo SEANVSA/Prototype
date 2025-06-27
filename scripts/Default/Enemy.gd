@@ -3,7 +3,6 @@ class_name Enemy
 var name:String = "Titan"
 var max_hp:int = 1
 var hp:int = 1
-var boss:bool = false
 
 func _init(_name:String, _max_hp:int):
 	name = _name
@@ -15,9 +14,3 @@ func takeDamage(damage:int) -> void:
 	
 func isAlive() -> bool:
 	return hp>0
-	
-func isBoss() -> bool:
-	return boss
-	
-func setAsBoss():
-	boss = true
