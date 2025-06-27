@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckh5pf2ixrlhe"]
+
+[ext_resource type="Texture2D" uid="uid://bdcmdiy15ymu5" path="res://assets/sprites/Monster18.png" id="1_nr5dw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtc2v"]
+atlas = ExtResource("1_nr5dw")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnyyv"]
+atlas = ExtResource("1_nr5dw")
+region = Rect2(0, 480, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xuggk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtc2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnyyv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gkdpf"]
+radius = 147.167
+
+[node name="Monster2" type="CharacterBody2D"]
+position = Vector2(-448, -197)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(441, 191)
+sprite_frames = SubResource("SpriteFrames_xuggk")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.669022
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(447, 201)
+shape = SubResource("CircleShape2D_gkdpf")

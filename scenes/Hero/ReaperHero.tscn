@@ -1,0 +1,138 @@
+[gd_scene load_steps=21 format=3 uid="uid://dek8glnu1rmfr"]
+
+[ext_resource type="Texture2D" uid="uid://5wgw18blade" path="res://assets/sprites/Reaper/HostileAttackReaper-Sheet.png" id="1_7wj6k"]
+[ext_resource type="Script" uid="uid://bbysxybrcmmyk" path="res://scripts/Character/HeroesCharacter.gd" id="1_mxji7"]
+[ext_resource type="Texture2D" uid="uid://ckpaaa4cti88k" path="res://assets/sprites/Reaper/HostileIdleReaper-Sheet.png" id="2_mxji7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au3v1"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axap5"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn5lt"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7sxl"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_144jw"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvmwm"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rqug"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl6e3"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ednb"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iar6"]
+atlas = ExtResource("1_7wj6k")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1m4r"]
+atlas = ExtResource("2_mxji7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pylkm"]
+atlas = ExtResource("2_mxji7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm8c3"]
+atlas = ExtResource("2_mxji7")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npwdh"]
+atlas = ExtResource("2_mxji7")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu2p3"]
+atlas = ExtResource("2_mxji7")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1m4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au3v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axap5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn5lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7sxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_144jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvmwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rqug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl6e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ednb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iar6")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1m4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pylkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm8c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npwdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu2p3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pylkm"]
+size = Vector2(19, 31)
+
+[node name="ReaperHero" type="CharacterBody2D"]
+script = ExtResource("1_mxji7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p1m4r")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_pylkm")
