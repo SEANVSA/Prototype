@@ -28,35 +28,35 @@ atlas = ExtResource("1_gnpxm")
 region = Rect2(780, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch6pf"]
-atlas = ExtResource("1_m33ot")
+atlas = ExtResource("1_qq65o")
 region = Rect2(0, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kj6qq"]
-atlas = ExtResource("1_m33ot")
+atlas = ExtResource("1_qq65o")
 region = Rect2(156, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y2j25"]
-atlas = ExtResource("1_m33ot")
+atlas = ExtResource("1_qq65o")
 region = Rect2(312, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqms7"]
-atlas = ExtResource("1_m33ot")
+atlas = ExtResource("1_qq65o")
 region = Rect2(468, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rekk"]
-atlas = ExtResource("1_m33ot")
+atlas = ExtResource("1_qq65o")
 region = Rect2(624, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0sqax"]
-atlas = ExtResource("1_m33ot")
+atlas = ExtResource("1_qq65o")
 region = Rect2(780, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxsoo"]
-atlas = ExtResource("1_m33ot")
+atlas = ExtResource("1_qq65o")
 region = Rect2(936, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aaeq1"]
-atlas = ExtResource("1_m33ot")
+atlas = ExtResource("1_qq65o")
 region = Rect2(1092, 0, 156, 120)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wqwum"]
