@@ -1,92 +1,60 @@
-[gd_scene load_steps=6 format=3 uid="uid://80waxwjde184"]
+[gd_scene load_steps=6 format=3 uid="uid://dy8kug6ywk2j8"]
 
-[ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/BaseGame/GameManager.gd" id="1_cxv17"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="1_vh257"]
-[ext_resource type="PackedScene" uid="uid://cvrhycyqic2f" path="res://scenes/Monster/Monster1.tscn" id="3_cxv17"]
-=======
-[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="1_vh257"]
-[ext_resource type="Texture2D" uid="uid://bctcbktmn1qgc" path="res://assets/sprites/Summer2.png" id="2_cxv17"]
->>>>>>> Stashed changes
+[ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/BaseGame/GameManager.gd" id="1_18ig4"]
+[ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Summer3.png" id="1_xy3my"]
+[ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="3_7s5hy"]
+[ext_resource type="PackedScene" uid="uid://cvrhycyqic2f" path="res://scenes/Monster/Monster1.tscn" id="4_xs4ih"]
 
-[sub_resource type="GDScript" id="GDScript_xy3my"]
-script/source = "extends Area2D
-
-@onready var game = $\"..\"
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_Area2D_input_event(viewport, event, shape_idx):
-	print(\"a\")
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		game.onClicked()
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s5hy"]
-size = Vector2(1149, 647)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs4ih"]
+size = Vector2(1172, 667)
 
 [node name="GameScene" type="Node2D"]
-script = ExtResource("1_cxv17")
-
-<<<<<<< Updated upstream
-=======
-[node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
-layout_mode = 2
-texture = ExtResource("2_cxv17")
-expand_mode = 2
-
-[node name="Player" parent="." instance=ExtResource("1_vh257")]
-script = null
-
->>>>>>> Stashed changes
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
-script = SubResource("GDScript_xy3my")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(-1.5, 0.5)
-shape = SubResource("RectangleShape2D_7s5hy")
-
-[node name="Player" parent="." instance=ExtResource("1_vh257")]
+script = ExtResource("1_18ig4")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -574.0
-offset_top = -325.0
-offset_right = 575.0
-offset_bottom = 324.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 686.0
-offset_top = 119.0
-offset_right = 1002.0
-offset_bottom = 161.0
-text = "HP:"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Monster1" parent="." instance=ExtResource("3_cxv17")]
-position = Vector2(276, -45)
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_xy3my")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Label" type="Label" parent="."]
+offset_left = 753.0
+offset_top = 304.0
+offset_right = 875.0
+offset_bottom = 326.333
+text = "Hp :"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -1)
+anchor_mode = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(578, 322.5)
+shape = SubResource("RectangleShape2D_xs4ih")
+
+[node name="Player" parent="." instance=ExtResource("3_7s5hy")]
+position = Vector2(450, 513)
+
+[node name="Monster1" parent="." instance=ExtResource("4_xs4ih")]
+position = Vector2(811, 452)
