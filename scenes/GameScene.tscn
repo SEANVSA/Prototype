@@ -1,8 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://80waxwjde184"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/BaseGame/GameManager.gd" id="1_cxv17"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="1_vh257"]
 [ext_resource type="PackedScene" uid="uid://cvrhycyqic2f" path="res://scenes/Monster/Monster1.tscn" id="3_cxv17"]
+=======
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="1_vh257"]
+[ext_resource type="Texture2D" uid="uid://bctcbktmn1qgc" path="res://assets/sprites/Summer2.png" id="2_cxv17"]
+>>>>>>> Stashed changes
 
 [sub_resource type="GDScript" id="GDScript_xy3my"]
 script/source = "extends Area2D
@@ -29,6 +34,30 @@ size = Vector2(1149, 647)
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_cxv17")
 
+<<<<<<< Updated upstream
+=======
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_cxv17")
+expand_mode = 2
+
+[node name="Player" parent="." instance=ExtResource("1_vh257")]
+script = null
+
+>>>>>>> Stashed changes
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
