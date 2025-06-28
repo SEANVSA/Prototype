@@ -210,7 +210,7 @@ size = Vector2(23, 35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oee24")
 animation = &"walk"
-frame_progress = 0.70272
+frame_progress = 0.682107
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -5.5)
