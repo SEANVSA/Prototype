@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://bb3tmjraxityg"]
+
+[ext_resource type="Texture2D" uid="uid://cpy2umlxsr2os" path="res://assets/sprites/Monster4/02-neutral-attacked.png" id="1_h2lan"]
+[ext_resource type="Texture2D" uid="uid://2fh2o5y6ppg4" path="res://assets/sprites/Monster4/02-neutral.png" id="2_057tw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ibq"]
+atlas = ExtResource("1_h2lan")
+region = Rect2(0, 0, 44, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bqgi"]
+atlas = ExtResource("1_h2lan")
+region = Rect2(44, 0, 44, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0d5i"]
+atlas = ExtResource("1_h2lan")
+region = Rect2(88, 0, 44, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx3no"]
+atlas = ExtResource("1_h2lan")
+region = Rect2(132, 0, 44, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p14f"]
+atlas = ExtResource("2_057tw")
+region = Rect2(0, 0, 44, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6qg3"]
+atlas = ExtResource("2_057tw")
+region = Rect2(44, 0, 44, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gkel"]
+atlas = ExtResource("2_057tw")
+region = Rect2(88, 0, 44, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tatwv"]
+atlas = ExtResource("2_057tw")
+region = Rect2(132, 0, 44, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccavv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8ibq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bqgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0d5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx3no")
+}],
+"loop": false,
+"name": &"attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p14f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6qg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gkel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tatwv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10xcx"]
+size = Vector2(27, 51)
+
+[node name="Monster4" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ccavv")
+animation = &"attacked"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_10xcx")
