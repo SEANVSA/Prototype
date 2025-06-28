@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dy8kug6ywk2j8"]
 
-[ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/BaseGame/GameManager.gd" id="1_18ig4"]
+[ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/Gameplay/GameManager.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Summer3.png" id="1_xy3my"]
 [ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="3_7s5hy"]
 [ext_resource type="PackedScene" uid="uid://cvrhycyqic2f" path="res://scenes/Monster/Monster1.tscn" id="4_xs4ih"]

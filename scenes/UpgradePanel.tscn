@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b4awid2g5vvp1"]
 
-[ext_resource type="Script" uid="uid://cnsgygwcs0cfl" path="res://scripts/UpgradePanel.gd" id="1_51cro"]
+[ext_resource type="Script" uid="uid://cnsgygwcs0cfl" path="res://scripts/Gameplay/UpgradePanel.gd" id="1_51cro"]
 [ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="2_lr558"]
 [ext_resource type="Texture2D" uid="uid://dskmxlkcdw8w6" path="res://assets/sprites/slash_icon.png" id="3_0fwnl"]
 [ext_resource type="Texture2D" uid="uid://doolw3py4gjkl" path="res://assets/sprites/Crit.png" id="4_f1j35"]

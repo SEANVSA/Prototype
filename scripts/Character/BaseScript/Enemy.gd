@@ -1,24 +1,24 @@
 class_name Enemy
 
 var name:String = "Titan"
-var max_hp:int = 1
-var hp:int = 1
+var max_hp:float = 1
+var hp:float = 1
 
-func _init(_name:String, _max_hp:int):
+func _init(_name:String, _max_hp:float):
 	name = _name
 	max_hp = _max_hp
 	hp = max_hp
 	
-func takeDamage(damage:int) -> void:
+func takeDamage(damage:float) -> void:
 	hp -= damage
 	
 func isAlive() -> bool:
 	return hp>0
 
-func getHp() -> int:
+func getHp() -> float:
 	return hp
 
-func getMaxHp() -> int:
+func getMaxHp() -> float:
 	return max_hp
 
 func getName() -> String:
