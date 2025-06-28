@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://njp0hy50aad1"]
+[gd_scene load_steps=19 format=3 uid="uid://b221fdvce3vxo"]
 
 [ext_resource type="Texture2D" uid="uid://bqsd0vlstg78h" path="res://assets/sprites/Monster3/08-earth-miniboss-attacked.png" id="1_gnpxm"]
 [ext_resource type="Texture2D" uid="uid://lmcpby0rlunj" path="res://assets/sprites/Monster3/08-earth-miniboss.png" id="1_m33ot"]
