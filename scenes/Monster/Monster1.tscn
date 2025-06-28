@@ -1,23 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvrhycyqic2f"]
+[gd_scene load_steps=8 format=3 uid="uid://cvrhycyqic2f"]
 
+[ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_5l4tw"]
 [ext_resource type="Texture2D" uid="uid://ln4j0l6cu0yr" path="res://assets/sprites/Monster1.png" id="1_imtfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsdiv"]
+atlas = ExtResource("1_imtfh")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7q4"]
+atlas = ExtResource("1_imtfh")
+region = Rect2(0, 480, 480, 480)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6vwd"]
 atlas = ExtResource("1_imtfh")
 region = Rect2(0, 0, 480, 480)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tfc16"]
-atlas = ExtResource("1_imtfh")
-region = Rect2(0, 480, 480, 480)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_s77ft"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c6vwd")
+"texture": SubResource("AtlasTexture_jsdiv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tfc16")
+"texture": SubResource("AtlasTexture_0h7q4")
+}],
+"loop": false,
+"name": &"attacked",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6vwd")
 }],
 "loop": true,
 "name": &"idle",
@@ -28,12 +41,16 @@ animations = [{
 radius = 132.518
 
 [node name="Monster1" type="CharacterBody2D"]
+script = ExtResource("1_5l4tw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s77ft")
-animation = &"idle"
+animation = &"attacked"
 autoplay = "idle"
-frame_progress = 0.707613
+frame_progress = 0.93562
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_0rkga")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

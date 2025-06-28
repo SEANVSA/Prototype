@@ -14,3 +14,12 @@ func takeDamage(damage:int) -> void:
 	
 func isAlive() -> bool:
 	return hp>0
+
+func getHp() -> int:
+	return hp
+
+func getMaxHp() -> int:
+	return max_hp
+
+func getName() -> String:
+	return name

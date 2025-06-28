@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://80waxwjde184"]
+[gd_scene load_steps=6 format=3 uid="uid://80waxwjde184"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/BaseGame/GameManager.gd" id="1_cxv17"]
 [ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="1_vh257"]
+[ext_resource type="PackedScene" uid="uid://cvrhycyqic2f" path="res://scenes/Monster/Monster1.tscn" id="3_cxv17"]
 
 [sub_resource type="GDScript" id="GDScript_xy3my"]
 script/source = "extends Area2D
@@ -39,3 +40,24 @@ position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_7s5hy")
 
 [node name="Player" parent="." instance=ExtResource("1_vh257")]
+
+[node name="Monster1" parent="." instance=ExtResource("3_cxv17")]
+position = Vector2(267, -38)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -574.0
+offset_top = -325.0
+offset_right = 575.0
+offset_bottom = 324.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 119.0
+offset_right = 1002.0
+offset_bottom = 161.0
+text = "HP:"
+horizontal_alignment = 1
+vertical_alignment = 1
