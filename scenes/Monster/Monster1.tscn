@@ -1,11 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvrhycyqic2f"]
+[gd_scene load_steps=7 format=3 uid="uid://cvrhycyqic2f"]
 
 [ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_5l4tw"]
 [ext_resource type="Texture2D" uid="uid://ln4j0l6cu0yr" path="res://assets/sprites/Monster1.png" id="1_imtfh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jsdiv"]
-atlas = ExtResource("1_imtfh")
-region = Rect2(0, 0, 480, 480)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h7q4"]
 atlas = ExtResource("1_imtfh")
@@ -19,14 +15,11 @@ region = Rect2(0, 0, 480, 480)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jsdiv")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_0h7q4")
 }],
 "loop": false,
 "name": &"attacked",
-"speed": 2.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -47,7 +40,6 @@ script = ExtResource("1_5l4tw")
 sprite_frames = SubResource("SpriteFrames_s77ft")
 animation = &"attacked"
 autoplay = "idle"
-frame_progress = 0.93562
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

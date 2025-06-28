@@ -41,9 +41,6 @@ shape = SubResource("RectangleShape2D_7s5hy")
 
 [node name="Player" parent="." instance=ExtResource("1_vh257")]
 
-[node name="Monster1" parent="." instance=ExtResource("3_cxv17")]
-position = Vector2(267, -38)
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -61,3 +58,6 @@ offset_bottom = 161.0
 text = "HP:"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Monster1" parent="." instance=ExtResource("3_cxv17")]
+position = Vector2(276, -45)
