@@ -11,7 +11,7 @@ func set_player_data(_player:Player):
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "attack":
-		anim.play("Idle")
+		anim.play("idle")
 
 func set_animation(anim_name:String):
 	anim.play(anim_name)

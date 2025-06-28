@@ -16,9 +16,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func set_animation(anim_name:String):
 	anim.play(anim_name)
 
+func getMonster() -> Enemy:
+	return monster
+
 func takeDamage(damage:int) -> void:
 	monster.takeDamage(damage)
 	anim.play("attacked")
-
-func getMonster() -> Enemy:
-	return monster

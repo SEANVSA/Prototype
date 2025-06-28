@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://bb2o73js4elrt"]
+[gd_scene load_steps=31 format=3 uid="uid://bb2o73js4elrt"]
 
 [ext_resource type="Texture2D" uid="uid://bjg51dy32pwst" path="res://assets/sprites/Minotaur/Minotaur - Sprite Sheet.png" id="1_30dhp"]
+[ext_resource type="Script" uid="uid://bbysxybrcmmyk" path="res://scripts/Character/HeroesCharacter.gd" id="1_ae6t4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ae6t4"]
 atlas = ExtResource("1_30dhp")
@@ -136,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_icsu7")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 10.0
 }, {
@@ -198,7 +199,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_coi72")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 8.0
 }]
 
@@ -206,11 +207,12 @@ animations = [{
 size = Vector2(23, 35)
 
 [node name="Minotaur" type="CharacterBody2D"]
+script = ExtResource("1_ae6t4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oee24")
-animation = &"walk"
-frame_progress = 0.70272
+animation = &"attack"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -5.5)
