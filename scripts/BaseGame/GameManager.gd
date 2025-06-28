@@ -1,12 +1,10 @@
-class_name GameManager
-
 extends Node2D
 
 @onready var player = $Player
 @onready var monster = $Monster1
 @onready var camera = $Camera2D
 @onready var area = $Area2D
-@onready var monsterHpLabel = $Control/Label
+@onready var monsterHpLabel = $Label
 
 var stage:int = 1
 
