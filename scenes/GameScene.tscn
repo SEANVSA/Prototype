@@ -19,6 +19,7 @@ offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 metadata/_edit_use_anchors_ = true
