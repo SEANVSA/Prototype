@@ -40,9 +40,17 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !onShop:
 		playerVisual.set_animation("attack")
 		if current_enemy:
-			current_enemy.takeDamage(player.tap_damage())
+			if current_enemy.getMonster().getHp().isLessThan(player.tap_damage()):
+				current_enemy.getMonster().alive = false
+				current_enemy.isDefeated()
+			else :
+				current_enemy.takeDamage(player.tap_damage())
 		elif current_boss:
-			current_boss.takeDamage(player.tap_damage())
+			if current_boss.getBoss().getHp().isLessThan(player.tap_damage()):
+				current_boss.getBoss().alive = false
+				current_boss.isDefeated()
+			else :
+				current_boss.takeDamage(player.tap_damage())
 
 func connectSignal():
 	upgradePanel.exit_buttton_pressed.connect(_on_exit_pressed)

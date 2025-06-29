@@ -47,25 +47,41 @@ func _ready():
 		update_panel_display()
 func _process(delta: float) -> void:
 	pass
+	
 func update_panel_display():
+	update_display()
+	updateButton1()
+	updateButton2()
+	updateButton3()
+	
+func update_display():
 	buyCount.text = "Buy "+buyCountNumber.toString()+"x"
 	coin.text = GlobalGold.gold.toAA()
 	tap_damage_top.text = "-Tap Dmg : "+GameManager.player.damage.toAA()
 	
-	nameLevel1.text = "Slash lvl: "+ GameManager.player.tap_damage_level.toAA()
-	tap_damage_bottom.text = "Tap Damage : "+GameManager.player.damage.toAA()
-	price1.text = UpgradeData.get_player_tap_damage_upgrade_cost(GameManager.player.tap_damage_level, buyCountNumber).toAA()
-	addedDps.text = "+"+UpgradeData.get_player_tap_damage_increase(GameManager.player.tap_damage_level, buyCountNumber).toAA()+" Dps"
-	
-	nameLevel2.text = "Crit Damage lvl: "+ GameManager.player.crit_multiplier_level.toAA()
-	crit_mul.text = "Multiplier: " + Number.format_percent(GameManager.player.crit_multiplier)
-	price2.text = UpgradeData.get_player_crit_multiplier_upgrade_cost(GameManager.player.crit_multiplier_level, buyCountNumber).toAA()
+func updateButton1():
+	var tapLvl = GameManager.player.tap_damage_level
+	var tapDmg = GameManager.player.damage
+	nameLevel1.text = "Slash lvl: "+ tapLvl.toAA()
+	tap_damage_bottom.text = "Tap Damage : "+tapDmg.toAA()
+	price1.text = UpgradeData.get_player_tap_damage_upgrade_cost(tapLvl, buyCountNumber).toAA()
+	addedDps.text = "+"+UpgradeData.get_player_tap_damage_increase(tapLvl, buyCountNumber).toAA()+" Dps"
+
+func updateButton2():
+	var critLvl = GameManager.player.crit_multiplier_level
+	var critMul = GameManager.player.crit_multiplier
+	nameLevel2.text = "Crit Damage lvl: "+ critLvl.toAA()
+	crit_mul.text = "Multiplier: " + Number.format_percent(critMul)
+	price2.text = UpgradeData.get_player_crit_multiplier_upgrade_cost(critLvl, buyCountNumber).toAA()
 	addedMul.text = "+"+Number.format_percent(UpgradeData.player_crit_multiplier_increase_per_level.multiply(buyCountNumber))
-	
+
+func updateButton3():
+	var critLvl = GameManager.player.crit_chance_level
+	var critChance = GameManager.player.crit_chance
 	if GameManager.player.crit_chance.isLessThan(1):
-		nameLevel3.text = "Crit Chance lvl: "+ GameManager.player.crit_chance_level.toAA()
-		crit_chance.text = "Chance: "+ Number.format_percent(GameManager.player.crit_chance)
-		price3.text = UpgradeData.get_player_crit_chance_upgrade_cost(GameManager.player.crit_chance_level, buyCountNumber).toAA()
+		nameLevel3.text = "Crit Chance lvl: "+ critLvl.toAA()
+		crit_chance.text = "Chance: "+ Number.format_percent(critChance)
+		price3.text = UpgradeData.get_player_crit_chance_upgrade_cost(critLvl, buyCountNumber).toAA()
 		addedChance.text = "+"+Number.format_percent(UpgradeData.player_crit_chance_increase_per_level.multiply(buyCountNumber))
 	else :
 		nameLevel3.text = "Crit Chance lvl: MAX"
@@ -90,18 +106,19 @@ func _on_buy_count_button_pressed() -> void:
 func _on_upgrade_1_button_pressed():
 	if GlobalGold.spendGold(UpgradeData.get_player_tap_damage_upgrade_cost(GameManager.player.tap_damage_level, buyCountNumber)):
 		GameManager.player.upgrade_tap_damage(buyCountNumber)
-		update_panel_display()
+		updateButton1()
+		update_display()
 
 func _on_upgrade_2_button_pressed() -> void:
 	if GlobalGold.spendGold(UpgradeData.get_player_crit_multiplier_upgrade_cost(GameManager.player.crit_multiplier_level, buyCountNumber)):
 		GameManager.player.upgrade_crit_multiplier(buyCountNumber)
-		update_panel_display()
+		updateButton2()
 
 
 func _on_upgrade_3_button_pressed() -> void:
 	if GlobalGold.spendGold(UpgradeData.get_player_crit_chance_upgrade_cost(GameManager.player.crit_chance_level, buyCountNumber)) and GameManager.player.crit_chance.isLessThan(1):
 		GameManager.player.upgrade_crit_chance(buyCountNumber)
-		update_panel_display()
+		updateButton3()
 
 
 func _on_upgrade_4_button_pressed() -> void:

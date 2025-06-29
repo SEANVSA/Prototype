@@ -1,7 +1,7 @@
 class_name Resources extends Node
 
 signal gold_value_changed
-var gold:Big = Big.new(300)
+var gold:Big = Big.new(1)
 
 func addGold(amount:Big):
 	gold.plusEquals(amount)

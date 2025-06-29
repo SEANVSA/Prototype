@@ -2,19 +2,19 @@
 class_name UpgradeData extends Resource
 
 # Player Tap Damage Upgrades
-static var player_base_tap_damage: Big = Big.new(2)
-static var player_tap_damage_base_cost: Big = Big.new(1.0)
-static var player_tap_damage_cost_multiplier: Big = Big.new(1)
+static var player_base_tap_damage: Big = Big.new(1)
+static var player_tap_damage_base_cost: Big = Big.new(1)
+static var player_tap_damage_cost_multiplier: Big = Big.new(1.1)
 static var player_tap_damage_increase_per_level: Big = Big.new(1.1)
 
 # Player Critical Chance Upgrades
 static var player_crit_chance_base_cost: Big = Big.new(1)
-static var player_crit_chance_cost_multiplier: Big = Big.new(1)
+static var player_crit_chance_cost_multiplier: Big = Big.new(1.3)
 static var player_crit_chance_increase_per_level: Big = Big.new(0.01)
 
 # Player Critical Multiplier Upgrades
 static var player_crit_multiplier_base_cost: Big = Big.new(100.0)
-static var player_crit_multiplier_cost_multiplier: Big = Big.new(1)
+static var player_crit_multiplier_cost_multiplier: Big = Big.new(1.5)
 static var player_crit_multiplier_increase_per_level: Big = Big.new(0.1)
 
 # Hero Level Upgrades

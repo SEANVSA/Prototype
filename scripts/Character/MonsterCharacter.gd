@@ -36,7 +36,7 @@ func updateHealthBar():
 	else:
 		healthbar.visible = false
 func isDefeated() -> bool:
-	if !monster.isAlive():
+	if !monster.alive:
 		emit_signal("enemy_defeated", monster.get_instance_id())
 		return true
 	return false

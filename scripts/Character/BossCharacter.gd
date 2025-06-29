@@ -48,7 +48,7 @@ func updateTimer():
 	else:
 		timerLabel.visible = false
 func isDefeated() -> bool:
-	if !boss.isAlive():
+	if !boss.alive:
 		emit_signal("boss_defeated", boss.get_instance_id())
 		return true
 	return false
