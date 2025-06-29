@@ -1,8 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://blrcyep22jtoy"]
-
-[ext_resource type="FontFile" uid="uid://63ljta3dap21" path="res://assets/fonts/PixelGamer-Regular.otf" id="1_aeh8r"]
-
-[resource]
-line_spacing = 5.0
-font = ExtResource("1_aeh8r")
-font_size = 18
