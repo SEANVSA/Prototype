@@ -23,7 +23,7 @@ func set_animation(anim_name:String):
 func getMonster() -> Enemy:
 	return monster
 
-func takeDamage(damage:float) -> void:
+func takeDamage(damage:Big) -> void:
 	monster.takeDamage(damage)
 	anim.play("attacked")
 	updateHealthBar()
@@ -31,7 +31,7 @@ func takeDamage(damage:float) -> void:
 
 func updateHealthBar():
 	if monster:
-		healthbar.text = "%s : %d / %d" % [monster.getName(), ceil(monster.getHp()), ceil(monster.getMaxHp())]
+		healthbar.text = monster.getName()+": "+ monster.getHp().toAA()+"/"+ monster.getMaxHp().toAA()
 		healthbar.visible = true
 	else:
 		healthbar.visible = false

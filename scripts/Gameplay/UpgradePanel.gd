@@ -3,7 +3,7 @@ class_name UpgradePanel extends Node2D
 @onready var tap_damage_top = $"PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player/Dmg"
 @onready var coin = $"PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player/Coin"
 @onready var buyCount = $PanelContainer/MarginContainer/VBoxContainer/BuyCountBox/BuyCountButton
-var buyCountNumber: int = 1
+var buyCountNumber: Big = Big.new(1)
 signal exit_buttton_pressed
 
 @onready var nameLevel1 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 DPS/Label"
@@ -48,25 +48,25 @@ func _ready():
 func _process(delta: float) -> void:
 	pass
 func update_panel_display():
-	buyCount.text = "Buy "+str(buyCountNumber)+"x"
-	coin.text = Number.format_number(GlobalGold.gold)
-	tap_damage_top.text = "-Tap Dmg : "+Number.format_number(GameManager.player.damage)
+	buyCount.text = "Buy "+buyCountNumber.toString()+"x"
+	coin.text = GlobalGold.gold.toAA()
+	tap_damage_top.text = "-Tap Dmg : "+GameManager.player.damage.toAA()
 	
-	nameLevel1.text = "Slash lvl: "+ Number.format_number(GameManager.player.tap_damage_level)
-	tap_damage_bottom.text = "Tap Damage : "+Number.format_number(GameManager.player.damage)
-	price1.text = Number.format_number(UpgradeData.get_player_tap_damage_upgrade_cost(GameManager.player.tap_damage_level, buyCountNumber))
-	addedDps.text = "+"+Number.format_number(UpgradeData.get_player_tap_damage_increase(GameManager.player.tap_damage_level, buyCountNumber))+" Dps"
+	nameLevel1.text = "Slash lvl: "+ GameManager.player.tap_damage_level.toAA()
+	tap_damage_bottom.text = "Tap Damage : "+GameManager.player.damage.toAA()
+	price1.text = UpgradeData.get_player_tap_damage_upgrade_cost(GameManager.player.tap_damage_level, buyCountNumber).toAA()
+	addedDps.text = "+"+UpgradeData.get_player_tap_damage_increase(GameManager.player.tap_damage_level, buyCountNumber).toAA()+" Dps"
 	
-	nameLevel2.text = "Crit Damage lvl: "+ Number.format_number(GameManager.player.crit_multiplier_level)
+	nameLevel2.text = "Crit Damage lvl: "+ GameManager.player.crit_multiplier_level.toAA()
 	crit_mul.text = "Multiplier: " + Number.format_percent(GameManager.player.crit_multiplier)
-	price2.text = Number.format_number(UpgradeData.get_player_crit_multiplier_upgrade_cost(GameManager.player.crit_multiplier_level, buyCountNumber))
-	addedMul.text = "+"+Number.format_percent(UpgradeData.player_crit_multiplier_increase_per_level*buyCountNumber)
+	price2.text = UpgradeData.get_player_crit_multiplier_upgrade_cost(GameManager.player.crit_multiplier_level, buyCountNumber).toAA()
+	addedMul.text = "+"+Number.format_percent(UpgradeData.player_crit_multiplier_increase_per_level.multiply(buyCountNumber))
 	
-	if GameManager.player.crit_chance < 1:
-		nameLevel3.text = "Crit Chance lvl: "+ Number.format_number(GameManager.player.crit_chance_level)
+	if GameManager.player.crit_chance.isLessThan(1):
+		nameLevel3.text = "Crit Chance lvl: "+ GameManager.player.crit_chance_level.toAA()
 		crit_chance.text = "Chance: "+ Number.format_percent(GameManager.player.crit_chance)
-		price3.text = Number.format_number(UpgradeData.get_player_crit_chance_upgrade_cost(GameManager.player.crit_chance_level, buyCountNumber))
-		addedChance.text = "+"+Number.format_percent(UpgradeData.player_crit_chance_increase_per_level*buyCountNumber)
+		price3.text = UpgradeData.get_player_crit_chance_upgrade_cost(GameManager.player.crit_chance_level, buyCountNumber).toAA()
+		addedChance.text = "+"+Number.format_percent(UpgradeData.player_crit_chance_increase_per_level.multiply(buyCountNumber))
 	else :
 		nameLevel3.text = "Crit Chance lvl: MAX"
 		crit_chance.text = "Chance: 100%"
@@ -81,10 +81,10 @@ func _on_shop_preseed():
 	update_panel_display()
 	
 func _on_buy_count_button_pressed() -> void:
-	if buyCountNumber == 100:
-		buyCountNumber = 1
+	if buyCountNumber.isEqualTo(100):
+		buyCountNumber = Big.new(1)
 	else: 
-		buyCountNumber *= 10
+		buyCountNumber.multiplyEquals(10)
 	update_panel_display()
 
 func _on_upgrade_1_button_pressed():
@@ -99,7 +99,7 @@ func _on_upgrade_2_button_pressed() -> void:
 
 
 func _on_upgrade_3_button_pressed() -> void:
-	if GlobalGold.spendGold(UpgradeData.get_player_crit_chance_upgrade_cost(GameManager.player.crit_chance_level, buyCountNumber)) and GameManager.player.crit_chance < 1:
+	if GlobalGold.spendGold(UpgradeData.get_player_crit_chance_upgrade_cost(GameManager.player.crit_chance_level, buyCountNumber)) and GameManager.player.crit_chance.isLessThan(1):
 		GameManager.player.upgrade_crit_chance(buyCountNumber)
 		update_panel_display()
 

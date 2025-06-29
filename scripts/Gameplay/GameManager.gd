@@ -3,9 +3,9 @@ class_name GameManager extends Node2D
 var current_enemy: MonstersCharacter
 var current_boss: BossCharacter
 static var active_heroes: Array[Heroes] = []
-static var stage:int = 1
-var enemies_per_stage: int = 10
-var defeated_enemies_this_stage: int = 0
+static var stage:Big = Big.new(1)
+var enemies_per_stage: Big = Big.new(10)
+var defeated_enemies_this_stage: Big = Big.new(0)
 static var player: Player
 var onShop:bool = false
 
@@ -51,10 +51,10 @@ func connectSignal():
 	
 
 func start_new_game():
-	player = Player.new("Budi",1,0.01,1.5,1)
-	stage = 1
-	enemies_per_stage = 10
-	defeated_enemies_this_stage = 0
+	player = Player.new("Budi",UpgradeData.player_base_tap_damage,Big.new(0.01),Big.new(1),Big.new(1))
+	stage = Big.new(1)
+	enemies_per_stage = Big.new(10)
+	defeated_enemies_this_stage = Big.new(0)
 	updateUI()
 
 func spawn_new_enemy():
@@ -80,27 +80,26 @@ func spawn_new_boss():
 	current_boss = boss_scene.instantiate() as BossCharacter
 	if current_boss:
 		enemy_spawn_container.add_child(current_boss)
-		current_boss.set_monster_data(Boss.new(boss_name, UpgradeData.get_enemy_hp(stage)*10))
+		current_boss.set_monster_data(Boss.new(boss_name, UpgradeData.get_enemy_hp(stage)))
 		current_boss.boss_defeated.connect(_on_boss_defeated)
 		current_boss.boss_escaped.connect(_on_boss_escaped)
 
 func _on_enemy_defeated(enemy_data_object_id: int):
 	GlobalGold.addGold(UpgradeData.get_enemy_gold_reward(stage))
-	defeated_enemies_this_stage += 1
-	if defeated_enemies_this_stage > enemies_per_stage:
-		print("Boss spawned")
+	defeated_enemies_this_stage.plusEquals(1)
+	if defeated_enemies_this_stage.isGreaterThan(enemies_per_stage):
 		spawn_new_boss()
 	else:
 		spawn_new_enemy()
 
 func _on_boss_defeated(enemy_data_object_id: int):
-	GlobalGold.addGold(UpgradeData.get_enemy_gold_reward(stage)*10)
-	stage+=1
-	defeated_enemies_this_stage = 0
+	GlobalGold.addGold(UpgradeData.get_enemy_gold_reward(stage).multiply(10))
+	stage.plusEquals(1)
+	defeated_enemies_this_stage = Big.new(0)
 	spawn_new_enemy()
 
 func _on_boss_escaped(enemy_data_object_id: int):
-	defeated_enemies_this_stage = 0
+	defeated_enemies_this_stage = Big.new(0)
 	spawn_new_enemy()
 	pass
 
@@ -168,9 +167,9 @@ func _on_shop_pressed():
 	upgradePanel.update_panel_display()
 
 func _on_gold_change():
-	goldLabel.text = Number.format_number(GlobalGold.gold)
+	goldLabel.text = GlobalGold.gold.toAA()
 	
 func updateUI():
-	levelLabel.text = "Lvl : "+Number.format_number(player.tap_damage_level)
+	levelLabel.text = "Lvl : "+player.tap_damage_level.toAA()
 	usenameLabel.text = player.name
 	pass
