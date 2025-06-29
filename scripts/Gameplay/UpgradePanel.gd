@@ -28,14 +28,14 @@ signal exit_buttton_pressed
 @onready var button3 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button"
 
 @onready var nameLevel4 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Chance/Label"
-@onready var double_slash_chance = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Chance/UpgradeDPS"
+@onready var double = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Chance/UpgradeDPS"
 @onready var progress4 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrae 4 Icon Box/ProgressUpgrade4"
 @onready var price4 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/Upgrade4Price/Price4"
 @onready var addedChance2 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/ChacneIncrease 3/Chance"
 @onready var button4 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button"
 
 @onready var nameLevel5 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade 5 Chance/Label"
-@onready var triple_slash_chance = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade 5 Chance/UpgradeChance"
+@onready var triple = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade 5 Chance/UpgradeChance"
 @onready var progress5 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrae 5 Icon Box/ProgressUpgrade5"
 @onready var price5 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/Upgrade5Price/Price5"
 @onready var addedChance3 = $"PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/ChanceIncrease 4/Chance"
@@ -53,33 +53,35 @@ func update_panel_display():
 	updateButton1()
 	updateButton2()
 	updateButton3()
+	updateButton4()
+	updateButton5()
 	
 func update_display():
-	buyCount.text = "Buy "+buyCountNumber.toString()+"x"
+	buyCount.text = "Buy "+buyCountNumber.toAA(true)+"x"
 	coin.text = GlobalGold.gold.toAA()
 	tap_damage_top.text = "-Tap Dmg : "+GameManager.player.damage.toAA()
 	
 func updateButton1():
-	var tapLvl = GameManager.player.tap_damage_level
-	var tapDmg = GameManager.player.damage
-	nameLevel1.text = "Slash lvl: "+ tapLvl.toAA()
+	var tapLvl = Big.new(GameManager.player.tap_damage_level)
+	var tapDmg = Big.new(GameManager.player.damage)
+	nameLevel1.text = "Slash lvl: "+ tapLvl.toAA(true)
 	tap_damage_bottom.text = "Tap Damage : "+tapDmg.toAA()
 	price1.text = UpgradeData.get_player_tap_damage_upgrade_cost(tapLvl, buyCountNumber).toAA()
 	addedDps.text = "+"+UpgradeData.get_player_tap_damage_increase(tapLvl, buyCountNumber).toAA()+" Dps"
 
 func updateButton2():
-	var critLvl = GameManager.player.crit_multiplier_level
-	var critMul = GameManager.player.crit_multiplier
-	nameLevel2.text = "Crit Damage lvl: "+ critLvl.toAA()
+	var critLvl = Big.new(GameManager.player.crit_multiplier_level)
+	var critMul = Big.new(GameManager.player.crit_multiplier)
+	nameLevel2.text = "Crit Damage lvl: "+ critLvl.toAA(true)
 	crit_mul.text = "Multiplier: " + Number.format_percent(critMul)
 	price2.text = UpgradeData.get_player_crit_multiplier_upgrade_cost(critLvl, buyCountNumber).toAA()
 	addedMul.text = "+"+Number.format_percent(UpgradeData.player_crit_multiplier_increase_per_level.multiply(buyCountNumber))
 
 func updateButton3():
-	var critLvl = GameManager.player.crit_chance_level
-	var critChance = GameManager.player.crit_chance
-	if GameManager.player.crit_chance.isLessThan(1):
-		nameLevel3.text = "Crit Chance lvl: "+ critLvl.toAA()
+	var critLvl = Big.new(GameManager.player.crit_chance_level)
+	var critChance = Big.new(GameManager.player.crit_chance)
+	if critChance.isLessThan(1):
+		nameLevel3.text = "Crit Chance lvl: "+ critLvl.toAA(true)
 		crit_chance.text = "Chance: "+ Number.format_percent(critChance)
 		price3.text = UpgradeData.get_player_crit_chance_upgrade_cost(critLvl, buyCountNumber).toAA()
 		addedChance.text = "+"+Number.format_percent(UpgradeData.player_crit_chance_increase_per_level.multiply(buyCountNumber))
@@ -89,7 +91,37 @@ func updateButton3():
 		price3.text = "MAXED"
 		addedChance.text = "MAXED"
 		button3.disabled = true
-	
+
+func updateButton4():
+	var doubleLvl = Big.new(GameManager.player.double_level)
+	var doubleChance = Big.new(GameManager.player.double)
+	if doubleChance.isLessThan(1):
+		nameLevel4.text = "Double Slash lvl: "+ doubleLvl.toAA(true)
+		double.text = "Chance: "+ Number.format_percent(doubleChance)
+		price4.text = UpgradeData.get_player_double_upgrade_cost(doubleLvl, buyCountNumber).toAA()
+		addedChance2.text = "+"+Number.format_percent(UpgradeData.player_double_increase_per_level.multiply(buyCountNumber))
+	else :
+		nameLevel4.text = "Double Slash lvl: MAX"
+		double.text = "Chance: 100%"
+		price4.text = "MAXED"
+		addedChance2.text = "MAXED"
+		button4.disabled = true
+
+func updateButton5():
+	var tripleLvl = Big.new(GameManager.player.triple_level)
+	var tripleChance = Big.new(GameManager.player.triple)
+	if tripleChance.isLessThan(1):
+		nameLevel5.text = "Triple Slash lvl: "+ tripleLvl.toAA(true)
+		triple.text = "Chance: "+ Number.format_percent(tripleChance)
+		price5.text = UpgradeData.get_player_triple_upgrade_cost(tripleLvl, buyCountNumber).toAA()
+		addedChance3.text = "+"+Number.format_percent(UpgradeData.player_triple_increase_per_level.multiply(buyCountNumber))
+	else :
+		nameLevel5.text = "Triple Slash lvl: MAX"
+		triple.text = "Chance: 100%"
+		price5.text = "MAXED"
+		addedChance3.text = "MAXED"
+		button5.disabled = true
+
 func _on_exit_pressed():
 	emit_signal("exit_buttton_pressed")
 	
@@ -122,8 +154,12 @@ func _on_upgrade_3_button_pressed() -> void:
 
 
 func _on_upgrade_4_button_pressed() -> void:
-	pass # Replace with function body.
+	if GlobalGold.spendGold(UpgradeData.get_player_double_upgrade_cost(GameManager.player.double_level, buyCountNumber)) and GameManager.player.double.isLessThan(1):
+		GameManager.player.upgrade_double(buyCountNumber)
+		updateButton4()
 
 
 func _on_upgrade__5_button_pressed() -> void:
-	pass # Replace with function body.
+	if GlobalGold.spendGold(UpgradeData.get_player_triple_upgrade_cost(GameManager.player.triple_level, buyCountNumber)) and GameManager.player.triple.isLessThan(1):
+		GameManager.player.upgrade_triple(buyCountNumber)
+		updateButton5()

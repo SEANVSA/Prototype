@@ -39,14 +39,16 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !onShop:
 		playerVisual.set_animation("attack")
+		var damage = player.tap_damage()
+		Number.display_damage(damage, enemy_spawn_container.global_position, player.is_crit)
 		if current_enemy:
-			if current_enemy.getMonster().getHp().isLessThan(player.tap_damage()):
+			if current_enemy.getMonster().getHp().isLessThan(damage):
 				current_enemy.getMonster().alive = false
 				current_enemy.isDefeated()
 			else :
-				current_enemy.takeDamage(player.tap_damage())
+				current_enemy.takeDamage(damage)
 		elif current_boss:
-			if current_boss.getBoss().getHp().isLessThan(player.tap_damage()):
+			if current_boss.getBoss().getHp().isLessThan(damage):
 				current_boss.getBoss().alive = false
 				current_boss.isDefeated()
 			else :
@@ -59,7 +61,7 @@ func connectSignal():
 	
 
 func start_new_game():
-	player = Player.new("Budi",UpgradeData.player_base_tap_damage,Big.new(0.01),Big.new(1),Big.new(1))
+	player = Player.new("Budi",Big.new(UpgradeData.player_base_tap_damage),Big.new(0.01),Big.new(1),Big.new(1),Big.new(0.01),Big.new(0.01))
 	stage = Big.new(1)
 	enemies_per_stage = Big.new(10)
 	defeated_enemies_this_stage = Big.new(0)
@@ -178,6 +180,6 @@ func _on_gold_change():
 	goldLabel.text = GlobalGold.gold.toAA()
 	
 func updateUI():
-	levelLabel.text = "Lvl : "+player.tap_damage_level.toAA()
+	levelLabel.text = "Lvl : "+player.tap_damage_level.toAA(true)
 	usenameLabel.text = player.name
 	pass
