@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpwcifimhad5c"]
+[gd_scene load_steps=7 format=3 uid="uid://b6ng0trmp6rn6"]
 
 [ext_resource type="Script" uid="uid://dk2y1ypbp1q5h" path="res://scripts/Gameplay/StartMenuController.gd" id="1_cp7se"]
-[ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Summer3.png" id="1_fb70i"]
+[ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Background/Summer3.png" id="1_fb70i"]
 [ext_resource type="FontFile" uid="uid://blvo84sdjk1t6" path="res://assets/fonts/LadyRadical2Regular-0yAz.ttf" id="2_kmax6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cp7se"]
