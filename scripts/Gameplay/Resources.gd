@@ -1,7 +1,7 @@
 class_name Resources extends Node
 
 signal gold_value_changed
-var gold:int = 0
+var gold:int = 314000
 
 func addGold(amount:int):
 	gold += amount

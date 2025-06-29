@@ -19,13 +19,13 @@ func tap_damage() -> float:
 	return	damage_dealt
 	
 func upgrade_tap_damage(level: int):
+	damage += UpgradeData.get_player_tap_damage_increase(tap_damage_level,level)
 	tap_damage_level += level
-	damage += UpgradeData.get_player_tap_damage_increase(level)
 	
 func upgrade_crit_chance(level:int):
-	crit_chance_level += level
 	crit_chance += UpgradeData.player_crit_chance_increase_per_level*level
+	crit_chance_level += level
 	
 func upgrade_crit_multiplier(level: int):
-	crit_chance_level += level
 	crit_multiplier += UpgradeData.player_crit_multiplier_increase_per_level*level
+	crit_multiplier_level += level

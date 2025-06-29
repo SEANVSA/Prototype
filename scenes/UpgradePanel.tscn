@@ -561,4 +561,9 @@ label_settings = SubResource("LabelSettings_wet4u")
 horizontal_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Exit/Button" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BuyCountBox/BuyCountButton" to="." method="_on_buy_count_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button" to="." method="_on_upgrade_1_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button" to="." method="_on_upgrade_2_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button" to="." method="_on_upgrade_3_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button" to="." method="_on_upgrade_4_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button" to="." method="_on_upgrade__5_button_pressed"]

@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	updateTimer()
 func set_monster_data(_boss:Enemy):
 	boss = _boss
+	updateHealthBar()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "attacked":

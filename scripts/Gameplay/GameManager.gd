@@ -7,6 +7,7 @@ static var stage:int = 1
 var enemies_per_stage: int = 10
 var defeated_enemies_this_stage: int = 0
 static var player: Player
+var onShop:bool = false
 
 const MONSTER_FOLDER_PATH = "res://scenes/Monster/"
 const BOSS_FOLDER_PATH = "res://scenes/Boss/"
@@ -36,7 +37,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !onShop:
 		playerVisual.set_animation("attack")
 		if current_enemy:
 			current_enemy.takeDamage(player.tap_damage())
@@ -159,15 +160,17 @@ func populate_boss_definitions():
 func _on_exit_pressed():
 	updateUI()
 	camera.position.y = 0
+	onShop = false
 
 func _on_shop_pressed():
 	camera.position.y = 650
-	upgradePanel.update_display()
+	onShop = true
+	upgradePanel.update_panel_display()
 
 func _on_gold_change():
-	goldLabel.text = str(GlobalGold.gold)
+	goldLabel.text = Number.format_number(GlobalGold.gold)
 	
 func updateUI():
-	levelLabel.text = "Lvl : "+str(player.tap_damage_level)
+	levelLabel.text = "Lvl : "+Number.format_number(player.tap_damage_level)
 	usenameLabel.text = player.name
 	pass

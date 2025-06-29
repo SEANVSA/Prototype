@@ -8,10 +8,10 @@ var monster:Enemy = null
 func _ready() -> void:
 	anim.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 	updateHealthBar()
-	pass
 
 func set_monster_data(_monster:Enemy):
 	monster = _monster
+	updateHealthBar()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "attacked":

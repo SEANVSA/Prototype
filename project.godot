@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalGold="*res://scripts/Gameplay/Resources.gd"
+Number="*res://scripts/Number.gd"
+BigNumber="*res://scripts/Gameplay/Big.gd"
 
 [gui]
 
