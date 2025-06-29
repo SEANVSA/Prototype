@@ -1,13 +1,12 @@
 class_name GameManager extends Node2D
 
-@onready var player = $Player
 var current_enemy: MonstersCharacter
 var current_boss: BossCharacter
-var active_heroes: Array[Heroes] = []
-var stage:int = 1
-var gold:Resources
-var enemies_per_stage: int = 5
+static var active_heroes: Array[Heroes] = []
+static var stage:int = 1
+var enemies_per_stage: int = 10
 var defeated_enemies_this_stage: int = 0
+static var player: Player
 
 const MONSTER_FOLDER_PATH = "res://scenes/Monster/"
 const BOSS_FOLDER_PATH = "res://scenes/Boss/"
@@ -16,11 +15,18 @@ const BOSS_FOLDER_PATH = "res://scenes/Boss/"
 @export var boss_definitions: Array[Dictionary] = []
 @export var heroes_defenition: Array[Dictionary] = []
 
+@onready var playerVisual = $Player
+@onready var camera = $Camera2D
 @onready var enemy_spawn_container: Node2D = $EnemySpawnContainer
+@onready var upgradePanel = $UpgradePanel
+@onready var usenameLabel = $PanelContainer/MarginContainer/VBoxContainer/Username
+@onready var levelLabel = $PanelContainer/MarginContainer/VBoxContainer/Lvl
+@onready var goldLabel = $PanelContainer2/MarginContainer/HBoxContainer/Coin
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player.set_player_data(Player.new("Player",1,0.5,3))
+	start_new_game()
+	connectSignal()
 	populate_enemy_definitions()
 	populate_boss_definitions()
 	spawn_new_enemy()
@@ -31,17 +37,24 @@ func _process(delta: float) -> void:
 	pass
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		player.set_animation("attack")
+		playerVisual.set_animation("attack")
 		if current_enemy:
-			current_enemy.takeDamage(player.getPlayer().tap_damage())
+			current_enemy.takeDamage(player.tap_damage())
 		elif current_boss:
-			current_boss.takeDamage(player.getPlayer().tap_damage())
-		
+			current_boss.takeDamage(player.tap_damage())
+
+func connectSignal():
+	upgradePanel.exit_buttton_pressed.connect(_on_exit_pressed)
+	GlobalGold.gold_value_changed.connect(_on_gold_change)
+	_on_gold_change()
+	
+
 func start_new_game():
-	gold = Resources.new(0)
+	player = Player.new("Budi",1,0.01,1.5,1)
 	stage = 1
-	enemies_per_stage = 100
+	enemies_per_stage = 10
 	defeated_enemies_this_stage = 0
+	updateUI()
 
 func spawn_new_enemy():
 	for child in enemy_spawn_container.get_children():
@@ -55,7 +68,7 @@ func spawn_new_enemy():
 		enemy_spawn_container.add_child(current_enemy)
 		current_enemy.set_monster_data(Enemy.new(monster_name, UpgradeData.get_enemy_hp(stage)))
 		current_enemy.enemy_defeated.connect(_on_enemy_defeated)
-		
+
 func spawn_new_boss():
 	for child in enemy_spawn_container.get_children():
 		child.queue_free()
@@ -69,21 +82,24 @@ func spawn_new_boss():
 		current_boss.set_monster_data(Boss.new(boss_name, UpgradeData.get_enemy_hp(stage)*10))
 		current_boss.boss_defeated.connect(_on_boss_defeated)
 		current_boss.boss_escaped.connect(_on_boss_escaped)
-		
-
 
 func _on_enemy_defeated(enemy_data_object_id: int):
+	GlobalGold.addGold(UpgradeData.get_enemy_gold_reward(stage))
 	defeated_enemies_this_stage += 1
 	if defeated_enemies_this_stage > enemies_per_stage:
 		print("Boss spawned")
 		spawn_new_boss()
 	else:
 		spawn_new_enemy()
+
 func _on_boss_defeated(enemy_data_object_id: int):
+	GlobalGold.addGold(UpgradeData.get_enemy_gold_reward(stage)*10)
 	stage+=1
 	defeated_enemies_this_stage = 0
 	spawn_new_enemy()
+
 func _on_boss_escaped(enemy_data_object_id: int):
+	defeated_enemies_this_stage = 0
 	spawn_new_enemy()
 	pass
 
@@ -115,7 +131,7 @@ func populate_enemy_definitions():
 		dir.list_dir_end()
 	else:
 		printerr("Could not open directory: ", MONSTER_FOLDER_PATH)
-		
+
 func populate_boss_definitions():
 	boss_definitions.clear() # Clear existing definitions
 
@@ -139,3 +155,19 @@ func populate_boss_definitions():
 		dir.list_dir_end()
 	else:
 		printerr("Could not open directory: ", BOSS_FOLDER_PATH)
+
+func _on_exit_pressed():
+	updateUI()
+	camera.position.y = 0
+
+func _on_shop_pressed():
+	camera.position.y = 650
+	upgradePanel.update_display()
+
+func _on_gold_change():
+	goldLabel.text = str(GlobalGold.gold)
+	
+func updateUI():
+	levelLabel.text = "Lvl : "+str(player.tap_damage_level)
+	usenameLabel.text = player.name
+	pass

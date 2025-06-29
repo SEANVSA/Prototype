@@ -15,6 +15,10 @@ run/main_scene="uid://bpwcifimhad5c"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalGold="*res://scripts/Gameplay/Resources.gd"
+
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true

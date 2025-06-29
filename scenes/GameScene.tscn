@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy8kug6ywk2j8"]
+[gd_scene load_steps=12 format=3 uid="uid://dy8kug6ywk2j8"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/Gameplay/GameManager.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Background/Summer3.png" id="1_xy3my"]
 [ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="3_7s5hy"]
 [ext_resource type="Texture2D" uid="uid://cu4bjjhvwg3io" path="res://assets/sprites/2303.w032.n002.902A.p30.902.png" id="4_6ytau"]
 [ext_resource type="FontFile" uid="uid://ik8a8gxnai53" path="res://assets/fonts/VecnaBold-4YY4.ttf" id="5_xs4ih"]
+[ext_resource type="PackedScene" uid="uid://b4awid2g5vvp1" path="res://scenes/UpgradePanel.tscn" id="7_6ytau"]
 [ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="7_yrli1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs4ih"]
-size = Vector2(1172, 667)
+size = Vector2(1150, 642)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j40tv"]
 atlas = ExtResource("4_6ytau")
@@ -25,6 +26,9 @@ font_size = 20
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_18ig4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -51,15 +55,12 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -1)
-anchor_mode = 0
-
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-201, -147)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
-position = Vector2(578, 322.5)
+position = Vector2(776, 473)
 shape = SubResource("RectangleShape2D_xs4ih")
 
 [node name="Player" parent="." instance=ExtResource("3_7s5hy")]
@@ -136,3 +137,8 @@ stretch_mode = 5
 layout_mode = 2
 text = "20"
 label_settings = SubResource("LabelSettings_e8rlm")
+
+[node name="UpgradePanel" parent="." instance=ExtResource("7_6ytau")]
+position = Vector2(0, 650)
+
+[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]

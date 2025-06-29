@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bul70c1g0fl65"]
+[gd_scene load_steps=21 format=3 uid="uid://c8pollsrfixao"]
 
 [ext_resource type="Script" uid="uid://bweigvyp6qp67" path="res://scripts/Character/BossCharacter.gd" id="1_rfvib"]
 [ext_resource type="Texture2D" uid="uid://bqsd0vlstg78h" path="res://assets/sprites/Monster/Boss/Log Wood/08-earth-miniboss-attacked.png" id="2_5jut2"]
@@ -157,8 +157,6 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

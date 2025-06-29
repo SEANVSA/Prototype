@@ -1,8 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b4awid2g5vvp1"]
 
-[ext_resource type="Script" uid="uid://cnsgygwcs0cfl" path="res://scripts/UpgradePanel.gd" id="1_51cro"]
-[ext_resource type="Texture2D" uid="uid://bk1ddcr6vrbf0" path="res://assets/sprites/882.jpg" id="2_7y048"]
 [ext_resource type="Script" uid="uid://cnsgygwcs0cfl" path="res://scripts/Gameplay/UpgradePanel.gd" id="1_51cro"]
+[ext_resource type="Texture2D" uid="uid://bk1ddcr6vrbf0" path="res://assets/sprites/882.jpg" id="2_7y048"]
 [ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="2_lr558"]
 [ext_resource type="Texture2D" uid="uid://dskmxlkcdw8w6" path="res://assets/sprites/Upgrade/slash_icon.png" id="3_0fwnl"]
 [ext_resource type="Texture2D" uid="uid://doolw3py4gjkl" path="res://assets/sprites/Upgrade/Crit.png" id="4_f1j35"]
@@ -26,13 +25,13 @@ font_size = 22
 font_size = 14
 
 [node name="UpgradePanel" type="Node2D"]
+script = ExtResource("1_51cro")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_51cro")
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
@@ -560,3 +559,6 @@ size_flags_vertical = 0
 text = "+0.5%"
 label_settings = SubResource("LabelSettings_wet4u")
 horizontal_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Exit/Button" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button" to="." method="_on_upgrade_1_button_pressed"]

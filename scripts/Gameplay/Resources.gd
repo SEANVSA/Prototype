@@ -1,13 +1,15 @@
-class_name Resources
+class_name Resources extends Node
 
+signal gold_value_changed
 var gold:int = 0
-
-func _init(_gold:int):
-	gold = _gold
 
 func addGold(amount:int):
 	gold += amount
+	emit_signal("gold_value_changed")
 
-func spendGold(amount:int):
+func spendGold(amount:int) -> bool:
 	if gold >= amount:
 		gold -= amount
+		emit_signal("gold_value_changed")
+		return true
+	return false

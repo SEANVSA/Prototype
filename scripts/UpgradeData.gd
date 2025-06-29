@@ -30,7 +30,6 @@ static var enemy_gold_multiplier_reward: float = 1.2
 
 static func get_player_tap_damage_upgrade_cost(current_level: int) -> float:
 	return player_tap_damage_base_cost * pow(player_tap_damage_cost_multiplier, current_level)
-
 static func get_player_tap_damage_increase(current_level: int) -> float:
 	return player_base_tap_damage * pow(player_tap_damage_increase_per_level, current_level)
 
@@ -42,5 +41,5 @@ static func get_player_crit_multiplier_upgrade_cost(current_level: int) -> float
 	
 static func get_enemy_hp(curret_stage: int) -> float:
 	return enemy_base_hp * pow(enemy_hp_multiplier_per_stage, curret_stage)
-static func get_enemy_gold_rewar(curret_stage: int) -> int:
+static func get_enemy_gold_reward(curret_stage: int) -> int:
 	return enemy_gold_base_reward * pow(enemy_gold_multiplier_reward, curret_stage)
