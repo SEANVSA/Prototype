@@ -10,7 +10,6 @@ var defeated_enemies_this_stage: int
 @export var enemy_definitions: Array[Dictionary] = [
 	{ "name": "Blue Slime", "path": "res://scenes/Monster/Monster1.tscn"},
 	{ "name": "Yellow Slime", "path": "res://scenes/Monster/Monster2.tscn"},
-	{ "name": "Treant", "path": "res://scenes/Monster/Monster3.tscn"},
 	{ "name": "Goblin", "path": "res://scenes/Monster/Monster4.tscn"}
 ]
 @export var boss_definitions: Array[Dictionary] = [
