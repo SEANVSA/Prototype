@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://clrhoref8e2ce"]
+[gd_scene load_steps=17 format=3 uid="uid://clrhoref8e2ce"]
 
 [ext_resource type="Texture2D" uid="uid://ctd2y7vopdfst" path="res://assets/sprites/Monster6/19-air-ranged-attacked.png" id="1_5a7sa"]
 [ext_resource type="Texture2D" uid="uid://bscavyoco74v0" path="res://assets/sprites/Monster6/19-air-ranged.png" id="2_13n2v"]
+[ext_resource type="LabelSettings" uid="uid://blrcyep22jtoy" path="res://assets/Label/new_label_settings.tres" id="3_13n2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_clksg"]
 atlas = ExtResource("1_5a7sa")
@@ -104,15 +105,16 @@ scale = Vector2(3.09091, 2.57895)
 sprite_frames = SubResource("SpriteFrames_lbbmt")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.398987
+frame_progress = 0.996391
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_31hyq")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -41.0
-offset_top = -80.0
-offset_right = 43.0
-offset_bottom = -57.6667
+offset_left = -47.0
+offset_top = -81.0
+offset_right = 50.0
+offset_bottom = -58.6667
 text = "name : eve"
+label_settings = ExtResource("3_13n2v")
