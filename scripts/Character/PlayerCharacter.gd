@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name PlayerCharacter extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
 var player : Player = null

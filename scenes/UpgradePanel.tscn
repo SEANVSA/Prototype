@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnsgygwcs0cfl" path="res://scripts/UpgradePanel.gd" id="1_51cro"]
 [ext_resource type="Texture2D" uid="uid://bk1ddcr6vrbf0" path="res://assets/sprites/882.jpg" id="2_7y048"]
+[ext_resource type="Script" uid="uid://cnsgygwcs0cfl" path="res://scripts/Gameplay/UpgradePanel.gd" id="1_51cro"]
 [ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="2_lr558"]
 [ext_resource type="Texture2D" uid="uid://dskmxlkcdw8w6" path="res://assets/sprites/Upgrade/slash_icon.png" id="3_0fwnl"]
 [ext_resource type="Texture2D" uid="uid://doolw3py4gjkl" path="res://assets/sprites/Upgrade/Crit.png" id="4_f1j35"]

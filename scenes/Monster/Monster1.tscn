@@ -38,11 +38,20 @@ script = ExtResource("1_5l4tw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s77ft")
-animation = &"idle"
+animation = &"attacked"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_0rkga")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -92.0
+offset_top = -185.0
+offset_right = 93.0
+offset_bottom = -162.667
+text = "name : efe"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

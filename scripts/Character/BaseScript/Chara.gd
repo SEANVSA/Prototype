@@ -1,5 +1,4 @@
-class_name Chara
-
+class_name Chara extends RefCounted
 var name:String = "Unnamed"
 var damage:float = 0.0
 
