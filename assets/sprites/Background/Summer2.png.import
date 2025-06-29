@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doolw3py4gjkl"
-path="res://.godot/imported/Crit.png-be1837ecaec38fda30a2298acae9968b.ctex"
+uid="uid://bctcbktmn1qgc"
+path="res://.godot/imported/Summer2.png-902ce8d111e18e9f1ea0690fe0e23b6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Crit.png"
-dest_files=["res://.godot/imported/Crit.png-be1837ecaec38fda30a2298acae9968b.ctex"]
+source_file="res://assets/sprites/Background/Summer2.png"
+dest_files=["res://.godot/imported/Summer2.png-902ce8d111e18e9f1ea0690fe0e23b6e.ctex"]
 
 [params]
 

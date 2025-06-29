@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv01lda4p8neu"
-path="res://.godot/imported/CritChance_icon.png-e41efe434d357b58f0ba1beb9a5d5641.ctex"
+path="res://.godot/imported/CritChance_icon.png-072ce97d433054e374fc89f7c32e763b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/CritChance_icon.png"
-dest_files=["res://.godot/imported/CritChance_icon.png-e41efe434d357b58f0ba1beb9a5d5641.ctex"]
+source_file="res://assets/sprites/Upgrade/CritChance_icon.png"
+dest_files=["res://.godot/imported/CritChance_icon.png-072ce97d433054e374fc89f7c32e763b.ctex"]
 
 [params]
 

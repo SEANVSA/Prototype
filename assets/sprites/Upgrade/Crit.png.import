@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjxv7y58oirfp"
-path="res://.godot/imported/Summer8.png-5653bab4473fbd204c70baab198edf93.ctex"
+uid="uid://doolw3py4gjkl"
+path="res://.godot/imported/Crit.png-19213c1d2591af4b91dae993f96ff3b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Summer8.png"
-dest_files=["res://.godot/imported/Summer8.png-5653bab4473fbd204c70baab198edf93.ctex"]
+source_file="res://assets/sprites/Upgrade/Crit.png"
+dest_files=["res://.godot/imported/Crit.png-19213c1d2591af4b91dae993f96ff3b4.ctex"]
 
 [params]
 
