@@ -1,0 +1,3 @@
+[gd_scene load_steps=6 format=3 uid="uid://80waxwjde184"]
+
+[ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/BaseGame/GameManager.gd" id="1_cxv17"]

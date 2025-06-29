@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv6604xjltu0v"
-path="res://.godot/imported/DoubleSlash.png-59efee8dcf2c593ccebbafdf2f9d2e49.ctex"
+uid="uid://dskmxlkcdw8w6"
+path="res://.godot/imported/slash_icon.png-7a694145bea9f0cba2c828c0ecb9b314.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/DoubleSlash.png"
-dest_files=["res://.godot/imported/DoubleSlash.png-59efee8dcf2c593ccebbafdf2f9d2e49.ctex"]
+source_file="res://assets/sprites/Upgrade/slash_icon.png"
+dest_files=["res://.godot/imported/slash_icon.png-7a694145bea9f0cba2c828c0ecb9b314.ctex"]
 
 [params]
 

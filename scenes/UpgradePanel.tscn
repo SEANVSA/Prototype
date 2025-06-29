@@ -1,58 +1,77 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4awid2g5vvp1"]
+[gd_scene load_steps=14 format=3 uid="uid://b4awid2g5vvp1"]
 
 [ext_resource type="Script" uid="uid://cnsgygwcs0cfl" path="res://scripts/UpgradePanel.gd" id="1_51cro"]
+[ext_resource type="Texture2D" uid="uid://bk1ddcr6vrbf0" path="res://assets/sprites/882.jpg" id="2_7y048"]
 [ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="2_lr558"]
-[ext_resource type="Texture2D" uid="uid://dskmxlkcdw8w6" path="res://assets/sprites/slash_icon.png" id="3_0fwnl"]
-[ext_resource type="Texture2D" uid="uid://doolw3py4gjkl" path="res://assets/sprites/Crit.png" id="4_f1j35"]
-[ext_resource type="Texture2D" uid="uid://cv01lda4p8neu" path="res://assets/sprites/CritChance_icon.png" id="5_7y048"]
+[ext_resource type="Texture2D" uid="uid://dskmxlkcdw8w6" path="res://assets/sprites/Upgrade/slash_icon.png" id="3_0fwnl"]
+[ext_resource type="Texture2D" uid="uid://doolw3py4gjkl" path="res://assets/sprites/Upgrade/Crit.png" id="4_f1j35"]
+[ext_resource type="Texture2D" uid="uid://cv01lda4p8neu" path="res://assets/sprites/Upgrade/CritChance_icon.png" id="5_7y048"]
+[ext_resource type="Texture2D" uid="uid://dv6604xjltu0v" path="res://assets/sprites/Upgrade/DoubleSlash.png" id="6_f1j35"]
+[ext_resource type="Texture2D" uid="uid://c48uthykcwv88" path="res://assets/sprites/Upgrade/TripleSlash.png" id="7_7y048"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gcgyr"]
-font_size = 15
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_molgr"]
-font_size = 8
+font_size = 29
 
 [sub_resource type="LabelSettings" id="LabelSettings_bmnrj"]
-font_size = 5
+font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_unbvk"]
-font_size = 11
+font_size = 22
 
 [sub_resource type="LabelSettings" id="LabelSettings_wet4u"]
-font_size = 8
+font_size = 14
 
 [node name="UpgradePanel" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -171.0
-offset_top = -101.0
-offset_right = 172.0
-offset_bottom = 103.0
-color = Color(0.458462, 0.383307, 0.308129, 1)
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -164.5
-offset_top = -93.5
-offset_right = 164.5
-offset_bottom = 93.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1152.0
+offset_bottom = 648.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_51cro")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_7y048")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/MarginContainer"]
+self_modulate = Color(1, 1, 1, 0.576471)
+layout_mode = 2
+color = Color(0.31, 0.208682, 0.1457, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Tap DMG Player" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Exit" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Dmg" type="Label" parent="PanelContainer/VBoxContainer/Tap DMG Player"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Exit"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Exit"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.23
+text = "Exit"
+
+[node name="Tap DMG Player" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Dmg" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -60,79 +79,83 @@ size_flags_vertical = 0
 text = "- Tap Dmg"
 label_settings = SubResource("LabelSettings_gcgyr")
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/Tap DMG Player"]
-modulate = Color(0.458462, 0.383307, 0.308129, 1)
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player"]
+modulate = Color(0.458, 0.383, 0.308, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Tap DMG Player"]
-custom_minimum_size = Vector2(25, 10)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("2_lr558")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Coin" type="Label" parent="PanelContainer/VBoxContainer/Tap DMG Player"]
+[node name="Coin" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player"]
 layout_mode = 2
 text = "-"
 
-[node name="BuyCountBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="BuyCountBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/BuyCountBox"]
-modulate = Color(0.458462, 0.383307, 0.308129, 1)
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/BuyCountBox"]
+modulate = Color(0.458, 0.383, 0.308, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="BuyCountButton" type="Button" parent="PanelContainer/VBoxContainer/BuyCountBox"]
+[node name="BuyCountButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/BuyCountBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
 text = "Buy 1x"
 
-[node name="Upgrade 1 Box" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Upgrade 1 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Upgrae 1 Icon Box" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 1 Box"]
+[node name="Upgrae 1 Icon Box" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box"]
 layout_mode = 2
 
-[node name="Icon 1" type="TextureRect" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrae 1 Icon Box"]
+[node name="Icon 1" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrae 1 Icon Box"]
 z_index = 1
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("3_0fwnl")
 expand_mode = 3
 
-[node name="ProgressUpgrade1" type="ProgressBar" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrae 1 Icon Box"]
+[node name="ProgressUpgrade1" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrae 1 Icon Box"]
 layout_mode = 2
 size_flags_vertical = 4
 show_percentage = false
 
-[node name="Upgrade 1 DPS" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 1 Box"]
+[node name="Upgrade 1 DPS" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 DPS"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 DPS"]
 layout_mode = 2
 text = "Slash"
 label_settings = SubResource("LabelSettings_molgr")
 
-[node name="UpgradeDPS" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 DPS"]
+[node name="UpgradeDPS" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 DPS"]
 layout_mode = 2
 text = "Tap demage :"
 label_settings = SubResource("LabelSettings_bmnrj")
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/Upgrade 1 Box"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Upgrade 1 Button" type="Button" parent="PanelContainer/VBoxContainer/Upgrade 1 Box"]
+[node name="Upgrade 1 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
 
-[node name="Price&DPSIncrease 1" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button"]
+[node name="Price&DPSIncrease 1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -146,81 +169,83 @@ offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Upgrade1Price" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1"]
+[node name="Upgrade1Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/Upgrade1Price"]
-custom_minimum_size = Vector2(15, 1)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/Upgrade1Price"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("2_lr558")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Price1" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/Upgrade1Price"]
+[node name="Price1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/Upgrade1Price"]
 layout_mode = 2
 text = "7"
 label_settings = SubResource("LabelSettings_unbvk")
 
-[node name="DPSIncrease 1" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1"]
+[node name="DPSIncrease 1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/DPSIncrease 1"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/DPSIncrease 1"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Level Up"
 label_settings = SubResource("LabelSettings_wet4u")
 horizontal_alignment = 1
 
-[node name="DPS" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/DPSIncrease 1"]
+[node name="DPS" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/DPSIncrease 1"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "+1.2 DPS"
 label_settings = SubResource("LabelSettings_wet4u")
 horizontal_alignment = 1
 
-[node name="Upgrade 2 Box" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Upgrade 2 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Upgrae 2 Icon Box" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 2 Box"]
+[node name="Upgrae 2 Icon Box" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box"]
 layout_mode = 2
 
-[node name="Icon 2" type="TextureRect" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrae 2 Icon Box"]
+[node name="Icon 2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrae 2 Icon Box"]
 z_index = 1
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("4_f1j35")
 expand_mode = 3
 
-[node name="ProgressUpgrade2" type="ProgressBar" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrae 2 Icon Box"]
+[node name="ProgressUpgrade2" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrae 2 Icon Box"]
 layout_mode = 2
 size_flags_vertical = 4
 show_percentage = false
 
-[node name="Upgrade 2 Chance" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 2 Box"]
+[node name="Upgrade 2 Chance" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Chance"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Chance"]
 layout_mode = 2
 text = "Crit. Demage"
 label_settings = SubResource("LabelSettings_molgr")
 
-[node name="UpgradeDPS" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Chance"]
+[node name="UpgradeDPS" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Chance"]
 layout_mode = 2
 text = "Multipliyer :"
 label_settings = SubResource("LabelSettings_bmnrj")
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/Upgrade 2 Box"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Upgrade 2 Button" type="Button" parent="PanelContainer/VBoxContainer/Upgrade 2 Box"]
+[node name="Upgrade 2 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Price&DPSIncrease 2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button"]
+[node name="Price&DPSIncrease 2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -234,80 +259,82 @@ offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Upgrade2Price" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2"]
+[node name="Upgrade2Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/Upgrade2Price"]
-custom_minimum_size = Vector2(15, 1)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/Upgrade2Price"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("2_lr558")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Price2" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/Upgrade2Price"]
+[node name="Price2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/Upgrade2Price"]
 layout_mode = 2
 text = "20"
 label_settings = SubResource("LabelSettings_unbvk")
 
-[node name="DPSIncrease 2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2"]
+[node name="DPSIncrease 2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/DPSIncrease 2"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/DPSIncrease 2"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Level Up"
 label_settings = SubResource("LabelSettings_wet4u")
 horizontal_alignment = 1
 
-[node name="DPS 2" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/DPSIncrease 2"]
+[node name="DPS 2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/DPSIncrease 2"]
 layout_mode = 2
 text = "+1%"
 label_settings = SubResource("LabelSettings_wet4u")
 horizontal_alignment = 1
 
-[node name="Upgrade 3 Box" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Upgrade 3 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Upgrae 3 Icon Box" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 3 Box"]
+[node name="Upgrae 3 Icon Box" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box"]
 layout_mode = 2
 
-[node name="Icon 3" type="TextureRect" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrae 3 Icon Box"]
+[node name="Icon 3" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrae 3 Icon Box"]
 z_index = 1
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("5_7y048")
 expand_mode = 3
 
-[node name="ProgressUpgrade3" type="ProgressBar" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrae 3 Icon Box"]
+[node name="ProgressUpgrade3" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrae 3 Icon Box"]
 layout_mode = 2
 size_flags_vertical = 4
 show_percentage = false
 
-[node name="Upgrade 3 Multy" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 3 Box"]
+[node name="Upgrade 3 Multy" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Multy"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Multy"]
 layout_mode = 2
 text = "Crit. Chance"
 label_settings = SubResource("LabelSettings_molgr")
 
-[node name="UpgradeChance" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Multy"]
+[node name="UpgradeChance" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Multy"]
 layout_mode = 2
 text = "Chance :"
 label_settings = SubResource("LabelSettings_bmnrj")
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/Upgrade 3 Box"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Upgrade 3 Button" type="Button" parent="PanelContainer/VBoxContainer/Upgrade 3 Box"]
+[node name="Upgrade 3 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Price&ChanceIncrease 1" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button"]
+[node name="Price&ChanceIncrease 1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -321,33 +348,214 @@ offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Upgrade3Price" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1"]
+[node name="Upgrade3Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/Upgrade3Price"]
-custom_minimum_size = Vector2(15, 1)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/Upgrade3Price"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("2_lr558")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Price3" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/Upgrade3Price"]
+[node name="Price3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/Upgrade3Price"]
 layout_mode = 2
 text = "100"
 label_settings = SubResource("LabelSettings_unbvk")
 
-[node name="ChanceIncrease 1" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1"]
+[node name="ChanceIncrease 1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/ChanceIncrease 1"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/ChanceIncrease 1"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Level Up"
 label_settings = SubResource("LabelSettings_wet4u")
 horizontal_alignment = 1
 
-[node name="Chance 1" type="Label" parent="PanelContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/ChanceIncrease 1"]
+[node name="Chance 1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/ChanceIncrease 1"]
 layout_mode = 2
 text = "+0.1%"
+label_settings = SubResource("LabelSettings_wet4u")
+horizontal_alignment = 1
+
+[node name="Upgrade 4 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Upgrae 4 Icon Box" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box"]
+layout_mode = 2
+
+[node name="Icon 4" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrae 4 Icon Box"]
+z_index = 1
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("6_f1j35")
+expand_mode = 3
+
+[node name="ProgressUpgrade4" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrae 4 Icon Box"]
+layout_mode = 2
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="Upgrade 4 Chance" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Chance"]
+layout_mode = 2
+text = "Double Slash"
+label_settings = SubResource("LabelSettings_molgr")
+
+[node name="UpgradeDPS" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Chance"]
+layout_mode = 2
+text = "Chance :"
+label_settings = SubResource("LabelSettings_bmnrj")
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Upgrade 4 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Price&ChanceIncrease 3" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.5
+offset_right = 20.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrade4Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/Upgrade4Price"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_lr558")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Price4" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/Upgrade4Price"]
+layout_mode = 2
+text = "25"
+label_settings = SubResource("LabelSettings_unbvk")
+
+[node name="ChacneIncrease 3" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/ChacneIncrease 3"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Level Up"
+label_settings = SubResource("LabelSettings_wet4u")
+horizontal_alignment = 1
+
+[node name="Chance" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/ChacneIncrease 3"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "+0.5%"
+label_settings = SubResource("LabelSettings_wet4u")
+horizontal_alignment = 1
+
+[node name="Upgrade 5 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Upgrae 5 Icon Box" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box"]
+layout_mode = 2
+
+[node name="Icon 5" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrae 5 Icon Box"]
+z_index = 1
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("7_7y048")
+expand_mode = 3
+
+[node name="ProgressUpgrade5" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrae 5 Icon Box"]
+layout_mode = 2
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="Upgrade 5 Chance" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade 5 Chance"]
+layout_mode = 2
+text = "Triple Slash"
+label_settings = SubResource("LabelSettings_molgr")
+
+[node name="UpgradeChance" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade 5 Chance"]
+layout_mode = 2
+text = "Chance :"
+label_settings = SubResource("LabelSettings_bmnrj")
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Upgrade  5 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Price&ChanceIncrease 4" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.5
+offset_right = 20.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrade5Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/Upgrade5Price"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_lr558")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Price5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/Upgrade5Price"]
+layout_mode = 2
+text = "80"
+label_settings = SubResource("LabelSettings_unbvk")
+
+[node name="ChanceIncrease 4" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/ChanceIncrease 4"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Level Up"
+label_settings = SubResource("LabelSettings_wet4u")
+horizontal_alignment = 1
+
+[node name="Chance" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/ChanceIncrease 4"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "+0.5%"
 label_settings = SubResource("LabelSettings_wet4u")
 horizontal_alignment = 1
