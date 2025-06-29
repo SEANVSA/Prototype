@@ -99,6 +99,9 @@ position = Vector2(-0.5, -16.5)
 shape = SubResource("RectangleShape2D_fmoqt")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 22.3333
+offset_left = -42.0
+offset_top = -154.0
+offset_right = 45.0
+offset_bottom = -131.667
+text = "Name : eve"
 label_settings = SubResource("LabelSettings_j2fj8")
