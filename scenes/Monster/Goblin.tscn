@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bb3tmjraxityg"]
+[gd_scene load_steps=15 format=3 uid="uid://ceclebspdp2by"]
 
 [ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_ovn1n"]
 [ext_resource type="Texture2D" uid="uid://cpy2umlxsr2os" path="res://assets/sprites/Monster4/02-neutral-attacked.png" id="2_q1be3"]

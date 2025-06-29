@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cblwgj2ot71v6"]
+[gd_scene load_steps=16 format=3 uid="uid://p1ijq5rek6cj"]
 
 [ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_crpn8"]
 [ext_resource type="Texture2D" uid="uid://cugarh1mwvky5" path="res://assets/sprites/Monster5/29-dark-miniboss-attacked.png" id="2_yv6uo"]
@@ -100,10 +100,10 @@ position = Vector2(-0.5, -16.5)
 shape = SubResource("RectangleShape2D_fmoqt")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -42.0
-offset_top = -154.0
-offset_right = 45.0
-offset_bottom = -131.667
+offset_left = -63.0
+offset_top = -155.0
+offset_right = 65.0
+offset_bottom = -132.667
 text = "Name : eve"
 label_settings = ExtResource("4_yv6uo")
 horizontal_alignment = 1
