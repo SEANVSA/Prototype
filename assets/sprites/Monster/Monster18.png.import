@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpy2umlxsr2os"
-path="res://.godot/imported/02-neutral-attacked.png-e309d5c9f7371b62b0171c39817993b5.ctex"
+uid="uid://bdcmdiy15ymu5"
+path="res://.godot/imported/Monster18.png-d22fa3d440af6c84a157fe2bd654f8a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Monster4/02-neutral-attacked.png"
-dest_files=["res://.godot/imported/02-neutral-attacked.png-e309d5c9f7371b62b0171c39817993b5.ctex"]
+source_file="res://assets/sprites/Monster/Monster18.png"
+dest_files=["res://.godot/imported/Monster18.png-d22fa3d440af6c84a157fe2bd654f8a4.ctex"]
 
 [params]
 

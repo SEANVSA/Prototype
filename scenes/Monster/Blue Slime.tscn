@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bwx5u7qvhvq3w"]
 
 [ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_5l4tw"]
-[ext_resource type="Texture2D" uid="uid://ln4j0l6cu0yr" path="res://assets/sprites/Monster1.png" id="1_imtfh"]
+[ext_resource type="Texture2D" uid="uid://ln4j0l6cu0yr" path="res://assets/sprites/Monster/Monster1.png" id="1_imtfh"]
 [ext_resource type="LabelSettings" uid="uid://b6m36x7pvbiyd" path="res://assets/Label/HpBar.tres" id="3_4mw1s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h7q4"]

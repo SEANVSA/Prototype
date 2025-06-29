@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lmcpby0rlunj"
-path="res://.godot/imported/08-earth-miniboss.png-29a91ca4213d7f846059ad4a7ed84abe.ctex"
+uid="uid://cpy2umlxsr2os"
+path="res://.godot/imported/02-neutral-attacked.png-118df43940d5490bc6defe50f535cc56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Monster3/08-earth-miniboss.png"
-dest_files=["res://.godot/imported/08-earth-miniboss.png-29a91ca4213d7f846059ad4a7ed84abe.ctex"]
+source_file="res://assets/sprites/Monster/Goblin/02-neutral-attacked.png"
+dest_files=["res://.godot/imported/02-neutral-attacked.png-118df43940d5490bc6defe50f535cc56.ctex"]
 
 [params]
 

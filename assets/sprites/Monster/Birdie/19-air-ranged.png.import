@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdcmdiy15ymu5"
-path="res://.godot/imported/Monster18.png-08d198480013ea6f93d2ff5d91494618.ctex"
+uid="uid://bscavyoco74v0"
+path="res://.godot/imported/19-air-ranged.png-74b24ca2c52aea73c0a10db0862c49af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Monster18.png"
-dest_files=["res://.godot/imported/Monster18.png-08d198480013ea6f93d2ff5d91494618.ctex"]
+source_file="res://assets/sprites/Monster/Birdie/19-air-ranged.png"
+dest_files=["res://.godot/imported/19-air-ranged.png-74b24ca2c52aea73c0a10db0862c49af.ctex"]
 
 [params]
 

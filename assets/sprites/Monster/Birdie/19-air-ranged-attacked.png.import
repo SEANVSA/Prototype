@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctcgx00bskwk5"
-path="res://.godot/imported/29-dark-miniboss.png-88dd7a49fa67ec7479f834bf00120f43.ctex"
+uid="uid://ctd2y7vopdfst"
+path="res://.godot/imported/19-air-ranged-attacked.png-9ca63c636eaef31d655613842b20812c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Monster5/29-dark-miniboss.png"
-dest_files=["res://.godot/imported/29-dark-miniboss.png-88dd7a49fa67ec7479f834bf00120f43.ctex"]
+source_file="res://assets/sprites/Monster/Birdie/19-air-ranged-attacked.png"
+dest_files=["res://.godot/imported/19-air-ranged-attacked.png-9ca63c636eaef31d655613842b20812c.ctex"]
 
 [params]
 

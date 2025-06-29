@@ -1,0 +1,129 @@
+[gd_scene load_steps=16 format=3 uid="uid://bfkmplsmq51fj"]
+
+[ext_resource type="Texture2D" uid="uid://0stcoljvo2h6" path="res://assets/sprites/Monster/Boss/Hell Goat/30-dark-boss-attacked.png" id="1_hxexr"]
+[ext_resource type="Texture2D" uid="uid://d1qakt6gksmph" path="res://assets/sprites/Monster/Boss/Hell Goat/30-dark-boss.png" id="2_5niri"]
+[ext_resource type="LabelSettings" uid="uid://b6m36x7pvbiyd" path="res://assets/Label/HpBar.tres" id="3_p1fg7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vejpp"]
+atlas = ExtResource("1_hxexr")
+region = Rect2(0, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51l3e"]
+atlas = ExtResource("1_hxexr")
+region = Rect2(68, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geysy"]
+atlas = ExtResource("1_hxexr")
+region = Rect2(136, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq1jo"]
+atlas = ExtResource("1_hxexr")
+region = Rect2(204, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c8bh"]
+atlas = ExtResource("1_hxexr")
+region = Rect2(272, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_136ws"]
+atlas = ExtResource("2_5niri")
+region = Rect2(0, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj17c"]
+atlas = ExtResource("2_5niri")
+region = Rect2(68, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l7jn"]
+atlas = ExtResource("2_5niri")
+region = Rect2(136, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_femyt"]
+atlas = ExtResource("2_5niri")
+region = Rect2(204, 0, 68, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dik4q"]
+atlas = ExtResource("2_5niri")
+region = Rect2(272, 0, 68, 81)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbqnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vejpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51l3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geysy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq1jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c8bh")
+}],
+"loop": false,
+"name": &"attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_136ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj17c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l7jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_femyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dik4q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ses5"]
+size = Vector2(85, 149)
+
+[node name="HellGoat" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -49)
+scale = Vector2(2.82353, 2.14198)
+sprite_frames = SubResource("SpriteFrames_kbqnq")
+animation = &"attacked"
+autoplay = "idle"
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -38.5)
+shape = SubResource("RectangleShape2D_4ses5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -154.0
+offset_right = 36.0
+offset_bottom = -140.0
+text = "Name : efe"
+label_settings = ExtResource("3_p1fg7")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -173.0
+offset_right = 29.0
+offset_bottom = -157.0
+text = "30"
+label_settings = ExtResource("3_p1fg7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]

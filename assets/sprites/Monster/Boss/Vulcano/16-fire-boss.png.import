@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2fh2o5y6ppg4"
-path="res://.godot/imported/02-neutral.png-a0349b30da6d7a4cef88fee4f717bfa2.ctex"
+uid="uid://dk7lqyp1xwm56"
+path="res://.godot/imported/16-fire-boss.png-d2759c1f00690f6c3cdbdac4db6f74be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Monster4/02-neutral.png"
-dest_files=["res://.godot/imported/02-neutral.png-a0349b30da6d7a4cef88fee4f717bfa2.ctex"]
+source_file="res://assets/sprites/Monster/Boss/Vulcano/16-fire-boss.png"
+dest_files=["res://.godot/imported/16-fire-boss.png-d2759c1f00690f6c3cdbdac4db6f74be.ctex"]
 
 [params]
 

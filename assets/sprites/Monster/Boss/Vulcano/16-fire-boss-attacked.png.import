@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqsd0vlstg78h"
-path="res://.godot/imported/08-earth-miniboss-attacked.png-0ef150730f91c95284f6af12cf202e01.ctex"
+uid="uid://dlrswcrr3jbig"
+path="res://.godot/imported/16-fire-boss-attacked.png-0789d9a2405eb5091e3ed5d29719cac4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Monster3/08-earth-miniboss-attacked.png"
-dest_files=["res://.godot/imported/08-earth-miniboss-attacked.png-0ef150730f91c95284f6af12cf202e01.ctex"]
+source_file="res://assets/sprites/Monster/Boss/Vulcano/16-fire-boss-attacked.png"
+dest_files=["res://.godot/imported/16-fire-boss-attacked.png-0789d9a2405eb5091e3ed5d29719cac4.ctex"]
 
 [params]
 

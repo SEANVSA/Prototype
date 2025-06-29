@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ln4j0l6cu0yr"
-path="res://.godot/imported/Monster1.png-dce46415a1c82a20e1f0abd4d95e5acf.ctex"
+uid="uid://bqsd0vlstg78h"
+path="res://.godot/imported/08-earth-miniboss-attacked.png-b24d0deb47e51e8f607cc24bac2a5ff2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Monster1.png"
-dest_files=["res://.godot/imported/Monster1.png-dce46415a1c82a20e1f0abd4d95e5acf.ctex"]
+source_file="res://assets/sprites/Monster/Boss/Log Wood/08-earth-miniboss-attacked.png"
+dest_files=["res://.godot/imported/08-earth-miniboss-attacked.png-b24d0deb47e51e8f607cc24bac2a5ff2.ctex"]
 
 [params]
 
