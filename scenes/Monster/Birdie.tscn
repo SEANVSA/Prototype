@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_oc2ir"]
 [ext_resource type="Texture2D" uid="uid://ctd2y7vopdfst" path="res://assets/sprites/Monster6/19-air-ranged-attacked.png" id="2_ajbug"]
 [ext_resource type="Texture2D" uid="uid://bscavyoco74v0" path="res://assets/sprites/Monster6/19-air-ranged.png" id="3_ee2n5"]
-[ext_resource type="LabelSettings" uid="uid://blrcyep22jtoy" path="res://assets/Label/new_label_settings.tres" id="4_ogvab"]
+[ext_resource type="LabelSettings" uid="uid://b6m36x7pvbiyd" path="res://assets/Label/HpBar.tres" id="4_oc2ir"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_clksg"]
 atlas = ExtResource("2_ajbug")
@@ -120,4 +120,6 @@ offset_top = -81.0
 offset_right = 50.0
 offset_bottom = -58.6667
 text = "name : eve"
-label_settings = ExtResource("4_ogvab")
+label_settings = ExtResource("4_oc2ir")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_crpn8"]
 [ext_resource type="Texture2D" uid="uid://cugarh1mwvky5" path="res://assets/sprites/Monster5/29-dark-miniboss-attacked.png" id="2_yv6uo"]
 [ext_resource type="Texture2D" uid="uid://ctcgx00bskwk5" path="res://assets/sprites/Monster5/29-dark-miniboss.png" id="3_q6ytu"]
-[ext_resource type="LabelSettings" uid="uid://blrcyep22jtoy" path="res://assets/Label/new_label_settings.tres" id="4_yv6uo"]
+[ext_resource type="LabelSettings" uid="uid://b6m36x7pvbiyd" path="res://assets/Label/HpBar.tres" id="4_yv6uo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fesk1"]
 atlas = ExtResource("2_yv6uo")
@@ -106,3 +106,5 @@ offset_right = 45.0
 offset_bottom = -131.667
 text = "Name : eve"
 label_settings = ExtResource("4_yv6uo")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_g2q4g"]
 [ext_resource type="Texture2D" uid="uid://bdcmdiy15ymu5" path="res://assets/sprites/Monster18.png" id="1_nr5dw"]
-[ext_resource type="LabelSettings" uid="uid://blrcyep22jtoy" path="res://assets/Label/new_label_settings.tres" id="3_g2n76"]
+[ext_resource type="LabelSettings" uid="uid://b6m36x7pvbiyd" path="res://assets/Label/HpBar.tres" id="3_db5br"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2n76"]
 atlas = ExtResource("1_nr5dw")
@@ -53,6 +53,6 @@ offset_top = -185.0
 offset_right = 93.0
 offset_bottom = -162.667
 text = "name : efe"
-label_settings = ExtResource("3_g2n76")
+label_settings = ExtResource("3_db5br")
 horizontal_alignment = 1
 vertical_alignment = 1

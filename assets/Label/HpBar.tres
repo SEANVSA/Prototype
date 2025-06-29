@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b6m36x7pvbiyd"]
+
+[ext_resource type="FontFile" uid="uid://da7fgj6i26c1d" path="res://assets/fonts/DePixelHalbfett.otf" id="1_r4lap"]
+
+[resource]
+font = ExtResource("1_r4lap")
+font_size = 8
