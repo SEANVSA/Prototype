@@ -10,11 +10,11 @@ var enemies_per_stage: int = 5
 var defeated_enemies_this_stage: int = 0
 
 const MONSTER_FOLDER_PATH = "res://scenes/Monster/"
+const BOSS_FOLDER_PATH = "res://scenes/Boss/"
 
 @export var enemy_definitions: Array[Dictionary] = []
-@export var boss_definitions: Array[Dictionary] = [
-	{ "name": "Treant", "path": "res://scenes/Boss/Monster3.tscn"},
-]
+@export var boss_definitions: Array[Dictionary] = []
+@export var heroes_defenition: Array[Dictionary] = []
 
 @onready var enemy_spawn_container: Node2D = $EnemySpawnContainer
 
@@ -22,6 +22,7 @@ const MONSTER_FOLDER_PATH = "res://scenes/Monster/"
 func _ready() -> void:
 	player.set_player_data(Player.new("Player",1,0.5,3))
 	populate_enemy_definitions()
+	populate_boss_definitions()
 	spawn_new_enemy()
 	pass
 	
@@ -114,3 +115,27 @@ func populate_enemy_definitions():
 		dir.list_dir_end()
 	else:
 		printerr("Could not open directory: ", MONSTER_FOLDER_PATH)
+		
+func populate_boss_definitions():
+	boss_definitions.clear() # Clear existing definitions
+
+	var dir = DirAccess.open(BOSS_FOLDER_PATH)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				pass 
+			else:
+				if file_name.ends_with(".tscn"):
+					var full_path = BOSS_FOLDER_PATH + file_name
+					var name = file_name.get_file().get_basename()
+					var boss_data = {
+						"name": name,
+						"path": full_path
+					}
+					boss_definitions.append(boss_data)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	else:
+		printerr("Could not open directory: ", BOSS_FOLDER_PATH)
