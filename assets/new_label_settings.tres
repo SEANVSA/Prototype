@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cl3yjm181pg4i"]
+
+[ext_resource type="FontFile" uid="uid://da7fgj6i26c1d" path="res://assets/fonts/DePixelHalbfett.otf" id="1_aeh8r"]
+
+[resource]
+font = ExtResource("1_aeh8r")

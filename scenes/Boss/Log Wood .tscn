@@ -1,63 +1,64 @@
-[gd_scene load_steps=21 format=3 uid="uid://bul70c1g0fl65"]
+[gd_scene load_steps=22 format=3 uid="uid://bul70c1g0fl65"]
 
-[ext_resource type="Script" uid="uid://bweigvyp6qp67" path="res://scripts/Character/BossCharacter.gd" id="1_2t640"]
-[ext_resource type="Texture2D" uid="uid://bqsd0vlstg78h" path="res://assets/sprites/Monster3/08-earth-miniboss-attacked.png" id="2_lpg1b"]
-[ext_resource type="Texture2D" uid="uid://lmcpby0rlunj" path="res://assets/sprites/Monster3/08-earth-miniboss.png" id="3_e0ebt"]
+[ext_resource type="Script" uid="uid://bweigvyp6qp67" path="res://scripts/Character/BossCharacter.gd" id="1_rfvib"]
+[ext_resource type="Texture2D" uid="uid://bqsd0vlstg78h" path="res://assets/sprites/Monster3/08-earth-miniboss-attacked.png" id="2_5jut2"]
+[ext_resource type="Texture2D" uid="uid://lmcpby0rlunj" path="res://assets/sprites/Monster3/08-earth-miniboss.png" id="3_guhnx"]
+[ext_resource type="LabelSettings" uid="uid://cl3yjm181pg4i" path="res://assets/new_label_settings.tres" id="4_l6m6w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qkvr"]
-atlas = ExtResource("2_lpg1b")
+atlas = ExtResource("2_5jut2")
 region = Rect2(0, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_brbcj"]
-atlas = ExtResource("2_lpg1b")
+atlas = ExtResource("2_5jut2")
 region = Rect2(156, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whdlv"]
-atlas = ExtResource("2_lpg1b")
+atlas = ExtResource("2_5jut2")
 region = Rect2(312, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjixx"]
-atlas = ExtResource("2_lpg1b")
+atlas = ExtResource("2_5jut2")
 region = Rect2(468, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dgu66"]
-atlas = ExtResource("2_lpg1b")
+atlas = ExtResource("2_5jut2")
 region = Rect2(624, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pssa3"]
-atlas = ExtResource("2_lpg1b")
+atlas = ExtResource("2_5jut2")
 region = Rect2(780, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xr1gl"]
-atlas = ExtResource("3_e0ebt")
+atlas = ExtResource("3_guhnx")
 region = Rect2(0, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hxkc"]
-atlas = ExtResource("3_e0ebt")
+atlas = ExtResource("3_guhnx")
 region = Rect2(156, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptxhw"]
-atlas = ExtResource("3_e0ebt")
+atlas = ExtResource("3_guhnx")
 region = Rect2(312, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fopx0"]
-atlas = ExtResource("3_e0ebt")
+atlas = ExtResource("3_guhnx")
 region = Rect2(468, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k30cg"]
-atlas = ExtResource("3_e0ebt")
+atlas = ExtResource("3_guhnx")
 region = Rect2(624, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yhkd1"]
-atlas = ExtResource("3_e0ebt")
+atlas = ExtResource("3_guhnx")
 region = Rect2(780, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lldiw"]
-atlas = ExtResource("3_e0ebt")
+atlas = ExtResource("3_guhnx")
 region = Rect2(936, 0, 156, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7fxd"]
-atlas = ExtResource("3_e0ebt")
+atlas = ExtResource("3_guhnx")
 region = Rect2(1092, 0, 156, 120)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uunik"]
@@ -122,7 +123,7 @@ size = Vector2(45, 111)
 
 [node name="Monster3" type="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)
-script = ExtResource("1_2t640")
+script = ExtResource("1_rfvib")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uunik")
@@ -142,6 +143,7 @@ offset_top = -81.2
 offset_right = 94.2
 offset_bottom = -58.8667
 text = "name : efe"
+label_settings = ExtResource("4_l6m6w")
 horizontal_alignment = 1
 vertical_alignment = 1
 
