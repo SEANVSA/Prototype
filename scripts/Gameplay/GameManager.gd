@@ -35,7 +35,6 @@ func _input(event):
 		if current_enemy:
 			current_enemy.takeDamage(player.getPlayer().tap_damage())
 		elif current_boss:
-			print(current_boss.timer.time_left)
 			current_boss.takeDamage(player.getPlayer().tap_damage())
 		
 func start_new_game():
@@ -82,6 +81,7 @@ func _on_enemy_defeated(enemy_data_object_id: int):
 		spawn_new_enemy()
 func _on_boss_defeated(enemy_data_object_id: int):
 	stage+=1
+	defeated_enemies_this_stage = 0
 	spawn_new_enemy()
 func _on_boss_escaped(enemy_data_object_id: int):
 	spawn_new_enemy()

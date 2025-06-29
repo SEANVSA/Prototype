@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://clrhoref8e2ce"]
+[gd_scene load_steps=17 format=3 uid="uid://did8wubf833t1"]
 
 [ext_resource type="Texture2D" uid="uid://ctd2y7vopdfst" path="res://assets/sprites/Monster6/19-air-ranged-attacked.png" id="1_5a7sa"]
+[ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_13n2v"]
 [ext_resource type="Texture2D" uid="uid://bscavyoco74v0" path="res://assets/sprites/Monster6/19-air-ranged.png" id="2_13n2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_clksg"]
@@ -97,6 +98,7 @@ animations = [{
 radius = 43.2897
 
 [node name="Monster6" type="CharacterBody2D"]
+script = ExtResource("1_13n2v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 4)
@@ -107,6 +109,7 @@ autoplay = "idle"
 frame_progress = 0.398987
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_31hyq")
 
@@ -116,3 +119,5 @@ offset_top = -80.0
 offset_right = 43.0
 offset_bottom = -57.6667
 text = "name : eve"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

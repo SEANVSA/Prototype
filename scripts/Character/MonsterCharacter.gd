@@ -30,7 +30,7 @@ func takeDamage(damage:float) -> void:
 
 func updateHealthBar():
 	if monster:
-		healthbar.text = monster.getName() + ": "+str(monster.getHp()) + "/"+str(monster.getMaxHp())
+		healthbar.text = "%s : %d / %d" % [monster.getName(), ceil(monster.getHp()), ceil(monster.getMaxHp())]
 		healthbar.visible = true
 	else:
 		healthbar.visible = false

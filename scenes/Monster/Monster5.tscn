@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b05nl72pyn6la"]
+[gd_scene load_steps=16 format=3 uid="uid://cblwgj2ot71v6"]
 
 [ext_resource type="Texture2D" uid="uid://cugarh1mwvky5" path="res://assets/sprites/Monster5/29-dark-miniboss-attacked.png" id="1_j2fj8"]
 [ext_resource type="Texture2D" uid="uid://ctcgx00bskwk5" path="res://assets/sprites/Monster5/29-dark-miniboss.png" id="1_n8c73"]
+[ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_vfh5i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fesk1"]
 atlas = ExtResource("1_j2fj8")
@@ -85,6 +86,7 @@ size = Vector2(129, 177)
 [sub_resource type="LabelSettings" id="LabelSettings_j2fj8"]
 
 [node name="Monster5" type="CharacterBody2D"]
+script = ExtResource("1_vfh5i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-06, -8.00001)
@@ -92,9 +94,9 @@ scale = Vector2(4.31034, 5.18182)
 sprite_frames = SubResource("SpriteFrames_fesk1")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.432343
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, -16.5)
 shape = SubResource("RectangleShape2D_fmoqt")
 
@@ -105,3 +107,5 @@ offset_right = 45.0
 offset_bottom = -131.667
 text = "Name : eve"
 label_settings = SubResource("LabelSettings_j2fj8")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
