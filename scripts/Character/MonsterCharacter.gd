@@ -1,5 +1,6 @@
 class_name MonstersCharacter extends CharacterBody2D
 
+signal enemy_defeated(enemy_data_object_id:int)
 @onready var anim = $AnimatedSprite2D
 @onready var healthbar = $Label
 var monster:Enemy = null
@@ -25,6 +26,7 @@ func takeDamage(damage:float) -> void:
 	monster.takeDamage(damage)
 	anim.play("attacked")
 	updateHealthBar()
+	isDefeated()
 
 func updateHealthBar():
 	if monster:
@@ -32,3 +34,8 @@ func updateHealthBar():
 		healthbar.visible = true
 	else:
 		healthbar.visible = false
+func isDefeated() -> bool:
+	if !monster.isAlive():
+		emit_signal("enemy_defeated", monster.get_instance_id())
+		return true
+	return false
