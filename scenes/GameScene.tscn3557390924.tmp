@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://80waxwjde184"]
+[gd_scene load_steps=13 format=3 uid="uid://80waxwjde184"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/Gameplay/GameManager.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Background/Summer3.png" id="1_xy3my"]
 [ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="3_7s5hy"]
 [ext_resource type="Texture2D" uid="uid://cu4bjjhvwg3io" path="res://assets/sprites/2303.w032.n002.902A.p30.902.png" id="4_6ytau"]
-[ext_resource type="FontFile" uid="uid://ik8a8gxnai53" path="res://assets/fonts/VecnaBold-4YY4.ttf" id="5_xs4ih"]
+[ext_resource type="FontFile" uid="uid://vmu84q5ql44e" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_vijgj"]
+[ext_resource type="FontFile" uid="uid://blvo84sdjk1t6" path="res://assets/fonts/LadyRadical2Regular-0yAz.ttf" id="6_pynjx"]
 [ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="7_yrli1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs4ih"]
@@ -14,11 +15,18 @@ size = Vector2(1172, 667)
 atlas = ExtResource("4_6ytau")
 region = Rect2(270.55, 248.481, 2615.76, 1740.58)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6pl24"]
+font = ExtResource("5_vijgj")
+outline_size = 11
+outline_color = Color(0.23, 0.23, 0.23, 1)
+shadow_size = 11
+shadow_color = Color(0.26, 0.26, 0.26, 1)
+shadow_offset = Vector2(5, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_w22tq"]
-font = ExtResource("5_xs4ih")
-font_size = 24
-outline_size = 9
-outline_color = Color(0, 0, 0, 1)
+font = ExtResource("6_pynjx")
+outline_size = 16
+outline_color = Color(0.29, 0.29, 0.29, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e8rlm"]
 font_size = 20
@@ -68,11 +76,11 @@ position = Vector2(450, 513)
 [node name="EnemySpawnContainer" type="Node2D" parent="."]
 position = Vector2(865, 453)
 
-[node name="Shop" type="Button" parent="."]
+[node name="Button" type="Button" parent="."]
 offset_left = 17.0
 offset_top = 582.0
 offset_right = 68.0
-offset_bottom = 634.0
+offset_bottom = 633.0
 text = "🛒"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -97,13 +105,13 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Username" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Username"
-label_settings = SubResource("LabelSettings_w22tq")
+label_settings = SubResource("LabelSettings_6pl24")
 
-[node name="Lvl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Lvl : -"
@@ -126,13 +134,12 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(33, 33)
 layout_mode = 2
 texture = ExtResource("7_yrli1")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Coin" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "20"
 label_settings = SubResource("LabelSettings_e8rlm")
