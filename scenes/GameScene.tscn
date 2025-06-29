@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy8kug6ywk2j8"]
+[gd_scene load_steps=5 format=3 uid="uid://dy8kug6ywk2j8"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/Gameplay/GameManager.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Summer3.png" id="1_xy3my"]
 [ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="3_7s5hy"]
-[ext_resource type="PackedScene" uid="uid://cvrhycyqic2f" path="res://scenes/Monster/Monster1.tscn" id="4_xs4ih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs4ih"]
 size = Vector2(1172, 667)
@@ -36,13 +35,6 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Label" type="Label" parent="."]
-offset_left = 753.0
-offset_top = 304.0
-offset_right = 875.0
-offset_bottom = 326.333
-text = "Hp :"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -1)
 anchor_mode = 0
@@ -57,5 +49,5 @@ shape = SubResource("RectangleShape2D_xs4ih")
 [node name="Player" parent="." instance=ExtResource("3_7s5hy")]
 position = Vector2(450, 513)
 
-[node name="Monster1" parent="." instance=ExtResource("4_xs4ih")]
-position = Vector2(811, 452)
+[node name="EnemySpawnContainer" type="Node2D" parent="."]
+position = Vector2(865, 453)
