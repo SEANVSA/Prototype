@@ -6,6 +6,7 @@ signal enemy_defeated(enemy_data_object_id:int)
 var monster:Enemy = null
 
 func _ready() -> void:
+	anim.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 	updateHealthBar()
 	pass
 

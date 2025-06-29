@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://80waxwjde184"]
+[gd_scene load_steps=11 format=3 uid="uid://dy8kug6ywk2j8"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/Gameplay/GameManager.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Background/Summer3.png" id="1_xy3my"]
-[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="3_7s5hy"]
+[ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="3_7s5hy"]
 [ext_resource type="Texture2D" uid="uid://cu4bjjhvwg3io" path="res://assets/sprites/2303.w032.n002.902A.p30.902.png" id="4_6ytau"]
 [ext_resource type="FontFile" uid="uid://ik8a8gxnai53" path="res://assets/fonts/VecnaBold-4YY4.ttf" id="5_xs4ih"]
 [ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="7_yrli1"]

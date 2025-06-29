@@ -6,14 +6,12 @@ var current_boss: BossCharacter
 var active_heroes: Array[Heroes] = []
 var stage:int = 1
 var gold:Resources
-var enemies_per_stage: int = 2
+var enemies_per_stage: int = 5
 var defeated_enemies_this_stage: int = 0
 
-@export var enemy_definitions: Array[Dictionary] = [
-	{ "name": "Blue Slime", "path": "res://scenes/Monster/Monster1.tscn"},
-	{ "name": "Yellow Slime", "path": "res://scenes/Monster/Monster2.tscn"},
-	{ "name": "Goblin", "path": "res://scenes/Monster/Monster4.tscn"}
-]
+const MONSTER_FOLDER_PATH = "res://scenes/Monster/"
+
+@export var enemy_definitions: Array[Dictionary] = []
 @export var boss_definitions: Array[Dictionary] = [
 	{ "name": "Treant", "path": "res://scenes/Boss/Monster3.tscn"},
 ]
@@ -22,7 +20,8 @@ var defeated_enemies_this_stage: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player.set_player_data(Player.new("Player",10,0.5,3))
+	player.set_player_data(Player.new("Player",1,0.5,3))
+	populate_enemy_definitions()
 	spawn_new_enemy()
 	pass
 	
@@ -40,7 +39,7 @@ func _input(event):
 func start_new_game():
 	gold = Resources.new(0)
 	stage = 1
-	enemies_per_stage = 10
+	enemies_per_stage = 100
 	defeated_enemies_this_stage = 0
 
 func spawn_new_enemy():
@@ -86,3 +85,32 @@ func _on_boss_defeated(enemy_data_object_id: int):
 func _on_boss_escaped(enemy_data_object_id: int):
 	spawn_new_enemy()
 	pass
+
+func populate_enemy_definitions():
+	enemy_definitions.clear() # Clear existing definitions
+
+	var dir = DirAccess.open(MONSTER_FOLDER_PATH)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				# Skip directories (if you have subfolders within Monster)
+				pass 
+			else:
+				# Check if it's a .tscn file
+				if file_name.ends_with(".tscn"):
+					var full_path = MONSTER_FOLDER_PATH + file_name
+					
+					# Get the name without extension (e.g., "Blue Slime")
+					var name = file_name.get_file().get_basename()
+					
+					var enemy_data = {
+						"name": name,
+						"path": full_path
+					}
+					enemy_definitions.append(enemy_data)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	else:
+		printerr("Could not open directory: ", MONSTER_FOLDER_PATH)

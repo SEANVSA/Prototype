@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvrhycyqic2f"]
+[gd_scene load_steps=8 format=3 uid="uid://cvrhycyqic2f"]
 
 [ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_5l4tw"]
 [ext_resource type="Texture2D" uid="uid://ln4j0l6cu0yr" path="res://assets/sprites/Monster1.png" id="1_imtfh"]
+[ext_resource type="LabelSettings" uid="uid://blrcyep22jtoy" path="res://assets/Label/new_label_settings.tres" id="3_jsdiv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h7q4"]
 atlas = ExtResource("1_imtfh")
@@ -50,8 +51,7 @@ offset_left = -92.0
 offset_top = -185.0
 offset_right = 93.0
 offset_bottom = -162.667
-text = "name : efe"
+text = "name : 10/10"
+label_settings = ExtResource("3_jsdiv")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

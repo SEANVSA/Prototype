@@ -1,39 +1,40 @@
-[gd_scene load_steps=14 format=3 uid="uid://bb3tmjraxityg"]
+[gd_scene load_steps=15 format=3 uid="uid://bb3tmjraxityg"]
 
-[ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_057tw"]
-[ext_resource type="Texture2D" uid="uid://cpy2umlxsr2os" path="res://assets/sprites/Monster4/02-neutral-attacked.png" id="1_h2lan"]
-[ext_resource type="Texture2D" uid="uid://2fh2o5y6ppg4" path="res://assets/sprites/Monster4/02-neutral.png" id="2_057tw"]
+[ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_ovn1n"]
+[ext_resource type="Texture2D" uid="uid://cpy2umlxsr2os" path="res://assets/sprites/Monster4/02-neutral-attacked.png" id="2_q1be3"]
+[ext_resource type="Texture2D" uid="uid://2fh2o5y6ppg4" path="res://assets/sprites/Monster4/02-neutral.png" id="3_erdg6"]
+[ext_resource type="LabelSettings" uid="uid://blrcyep22jtoy" path="res://assets/Label/new_label_settings.tres" id="4_q1be3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8ibq"]
-atlas = ExtResource("1_h2lan")
+atlas = ExtResource("2_q1be3")
 region = Rect2(0, 0, 44, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bqgi"]
-atlas = ExtResource("1_h2lan")
+atlas = ExtResource("2_q1be3")
 region = Rect2(44, 0, 44, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0d5i"]
-atlas = ExtResource("1_h2lan")
+atlas = ExtResource("2_q1be3")
 region = Rect2(88, 0, 44, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dx3no"]
-atlas = ExtResource("1_h2lan")
+atlas = ExtResource("2_q1be3")
 region = Rect2(132, 0, 44, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7p14f"]
-atlas = ExtResource("2_057tw")
+atlas = ExtResource("3_erdg6")
 region = Rect2(0, 0, 44, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i6qg3"]
-atlas = ExtResource("2_057tw")
+atlas = ExtResource("3_erdg6")
 region = Rect2(44, 0, 44, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gkel"]
-atlas = ExtResource("2_057tw")
+atlas = ExtResource("3_erdg6")
 region = Rect2(88, 0, 44, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tatwv"]
-atlas = ExtResource("2_057tw")
+atlas = ExtResource("3_erdg6")
 region = Rect2(132, 0, 44, 59)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ccavv"]
@@ -77,7 +78,7 @@ animations = [{
 size = Vector2(27, 51)
 
 [node name="Monster4" type="CharacterBody2D"]
-script = ExtResource("1_057tw")
+script = ExtResource("1_ovn1n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
@@ -96,7 +97,6 @@ offset_top = -185.0
 offset_right = 93.0
 offset_bottom = -162.667
 text = "name : efe"
+label_settings = ExtResource("4_q1be3")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
