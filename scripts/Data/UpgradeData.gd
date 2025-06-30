@@ -36,7 +36,7 @@ static var hero_level_damage_increase_per_level: Big = Big.new(1.0)
 static var enemy_base_hp: Big = Big.new(17.5)
 static var enemy_hp_multiplier_per_stage: Big = Big.new(1.39)
 static var enemy_second_hp_multiplier: Big = Big.new(1.13)
-static var enemy_gold_base_reward: Big = Big.new(5)
+static var enemy_gold_base_reward: Big = Big.new(10)
 static var enemy_gold_multiplier_reward: Big = Big.new(1.1)
 
 static func get_player_tap_damage_upgrade_cost(current_level: Big, level: Big) -> Big:
@@ -69,6 +69,6 @@ static func get_player_triple_upgrade_cost(current_level: Big, level: Big) -> Bi
 	return player_triple_base_cost.multiply(player_triple_cost_multiplier.power(current_level)).plus(get_player_triple_upgrade_cost(current_level.plus(1), level.minus(1)))
 
 static func get_enemy_hp(current_stage: Big) -> Big:
-	return enemy_base_hp.multiply(enemy_hp_multiplier_per_stage.power(current_stage))
+	return Big.new(randf_range(15,20)).multiply(enemy_hp_multiplier_per_stage.power(current_stage))
 static func get_enemy_gold_reward(current_stage: Big) -> Big:
 	return enemy_gold_base_reward.multiply(enemy_gold_multiplier_reward.power(current_stage))

@@ -3,7 +3,7 @@ class_name GameManager extends Node2D
 var current_enemy: MonstersCharacter
 var current_boss: BossCharacter
 static var active_heroes: Array[Heroes] = []
-static var stage:Big = Big.new(1)
+static var stage: Big = Big.new(1)
 var enemies_per_stage: Big = Big.new(10)
 var defeated_enemies_this_stage: Big = Big.new(0)
 static var player: Player
@@ -23,6 +23,7 @@ const BOSS_FOLDER_PATH = "res://scenes/Boss/"
 @onready var usenameLabel = $PanelContainer/MarginContainer/VBoxContainer/Username
 @onready var levelLabel = $PanelContainer/MarginContainer/VBoxContainer/Lvl
 @onready var goldLabel = $PanelContainer2/MarginContainer/HBoxContainer/Coin
+@onready var gold_spawn_container = $PanelContainer2/MarginContainer/HBoxContainer/TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,7 +64,7 @@ func connectSignal():
 func start_new_game():
 	player = Player.new("Budi",Big.new(UpgradeData.player_base_tap_damage),Big.new(0.01),Big.new(1),Big.new(1),Big.new(0.01),Big.new(0.01))
 	stage = Big.new(1)
-	enemies_per_stage = Big.new(1)
+	enemies_per_stage = Big.new(10)
 	defeated_enemies_this_stage = Big.new(0)
 	updateUI()
 
@@ -95,7 +96,9 @@ func spawn_new_boss():
 		current_boss.boss_escaped.connect(_on_boss_escaped)
 
 func _on_enemy_defeated(enemy_data_object_id: int):
-	GlobalGold.addGold(UpgradeData.get_enemy_gold_reward(stage))
+	var gold = UpgradeData.get_enemy_gold_reward(stage)
+	GlobalGold.addGold(gold)
+	Number.display_gold(gold, gold_spawn_container.global_position)
 	defeated_enemies_this_stage.plusEquals(1)
 	if defeated_enemies_this_stage.isGreaterThanOrEqualTo(enemies_per_stage):
 		spawn_new_boss()
@@ -103,7 +106,9 @@ func _on_enemy_defeated(enemy_data_object_id: int):
 		spawn_new_enemy()
 
 func _on_boss_defeated(enemy_data_object_id: int):
-	GlobalGold.addGold(UpgradeData.get_enemy_gold_reward(stage).multiply(10))
+	var gold = UpgradeData.get_enemy_gold_reward(stage).multiply(10)
+	GlobalGold.addGold(gold)
+	Number.display_gold(gold, gold_spawn_container.global_position)
 	stage.plusEquals(1)
 	defeated_enemies_this_stage = Big.new(0)
 	spawn_new_enemy()

@@ -54,6 +54,6 @@ func isDefeated() -> bool:
 	return false
 	
 func _on_timer_timeout() -> void:
-	if boss.isAlive():
+	if boss.alive:
 		print("boss escaped")
 		emit_signal("boss_escaped", boss.get_instance_id())
