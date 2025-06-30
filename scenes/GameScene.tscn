@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy8kug6ywk2j8"]
+[gd_scene load_steps=12 format=3 uid="uid://dy8kug6ywk2j8"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/Gameplay/GameManager.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Background/Summer3.png" id="1_xy3my"]
@@ -160,7 +160,9 @@ horizontal_alignment = 1
 [node name="Button" type="Button" parent="PanelContainer3/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Fight Boss!"
+
 [node name="UpgradePanel" parent="." instance=ExtResource("7_6ytau")]
 position = Vector2(0, 650)
 
 [connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="PanelContainer3/MarginContainer/VBoxContainer/Button" to="." method="_on_boss_fight_pressed"]
