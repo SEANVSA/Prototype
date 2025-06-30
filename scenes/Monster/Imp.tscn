@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://p1ijq5rek6cj"]
+
+[ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_crpn8"]
+[ext_resource type="Texture2D" uid="uid://cugarh1mwvky5" path="res://assets/sprites/Monster/Imp/29-dark-miniboss-attacked.png" id="2_yv6uo"]
+[ext_resource type="Texture2D" uid="uid://ctcgx00bskwk5" path="res://assets/sprites/Monster/Imp/29-dark-miniboss.png" id="3_q6ytu"]
+[ext_resource type="LabelSettings" uid="uid://b6m36x7pvbiyd" path="res://assets/Label/HpBar.tres" id="4_yv6uo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fesk1"]
+atlas = ExtResource("2_yv6uo")
+region = Rect2(0, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmoqt"]
+atlas = ExtResource("2_yv6uo")
+region = Rect2(58, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijv1s"]
+atlas = ExtResource("2_yv6uo")
+region = Rect2(116, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3skpd"]
+atlas = ExtResource("2_yv6uo")
+region = Rect2(174, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2fj8"]
+atlas = ExtResource("3_q6ytu")
+region = Rect2(0, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfh5i"]
+atlas = ExtResource("3_q6ytu")
+region = Rect2(58, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkj5e"]
+atlas = ExtResource("3_q6ytu")
+region = Rect2(116, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ryee"]
+atlas = ExtResource("3_q6ytu")
+region = Rect2(174, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8un5"]
+atlas = ExtResource("3_q6ytu")
+region = Rect2(232, 0, 58, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fesk1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fesk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmoqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijv1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3skpd")
+}],
+"loop": false,
+"name": &"attacked",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2fj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfh5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkj5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ryee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8un5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmoqt"]
+size = Vector2(129, 177)
+
+[node name="Monster5" type="CharacterBody2D"]
+script = ExtResource("1_crpn8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-06, -8.00001)
+scale = Vector2(4.31034, 5.18182)
+sprite_frames = SubResource("SpriteFrames_fesk1")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, -16.5)
+shape = SubResource("RectangleShape2D_fmoqt")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -63.0
+offset_top = -155.0
+offset_right = 65.0
+offset_bottom = -132.667
+text = "Name : eve"
+label_settings = ExtResource("4_yv6uo")
+horizontal_alignment = 1
+vertical_alignment = 1

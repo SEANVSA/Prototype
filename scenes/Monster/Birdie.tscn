@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://uv1y2rl81bf4"]
+
+[ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_oc2ir"]
+[ext_resource type="Texture2D" uid="uid://ctd2y7vopdfst" path="res://assets/sprites/Monster/Birdie/19-air-ranged-attacked.png" id="2_ajbug"]
+[ext_resource type="Texture2D" uid="uid://bscavyoco74v0" path="res://assets/sprites/Monster/Birdie/19-air-ranged.png" id="3_ee2n5"]
+[ext_resource type="LabelSettings" uid="uid://b6m36x7pvbiyd" path="res://assets/Label/HpBar.tres" id="4_oc2ir"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clksg"]
+atlas = ExtResource("2_ajbug")
+region = Rect2(0, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1hhf"]
+atlas = ExtResource("2_ajbug")
+region = Rect2(66, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvlfr"]
+atlas = ExtResource("2_ajbug")
+region = Rect2(132, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df4d1"]
+atlas = ExtResource("2_ajbug")
+region = Rect2(198, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymq7s"]
+atlas = ExtResource("3_ee2n5")
+region = Rect2(0, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ga3i"]
+atlas = ExtResource("3_ee2n5")
+region = Rect2(66, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5i5t"]
+atlas = ExtResource("3_ee2n5")
+region = Rect2(132, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvito"]
+atlas = ExtResource("3_ee2n5")
+region = Rect2(198, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fmq3"]
+atlas = ExtResource("3_ee2n5")
+region = Rect2(198, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpoc1"]
+atlas = ExtResource("3_ee2n5")
+region = Rect2(132, 0, 66, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnp15"]
+atlas = ExtResource("3_ee2n5")
+region = Rect2(66, 0, 66, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbbmt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clksg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1hhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvlfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df4d1")
+}],
+"loop": false,
+"name": &"attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymq7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ga3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5i5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvito")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fmq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpoc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnp15")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31hyq"]
+radius = 43.2897
+
+[node name="Monster6" type="CharacterBody2D"]
+script = ExtResource("1_oc2ir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 4)
+scale = Vector2(3.09091, 2.57895)
+sprite_frames = SubResource("SpriteFrames_lbbmt")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.788588
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_31hyq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -81.0
+offset_right = 62.0
+offset_bottom = -58.6667
+text = "name : eve"
+label_settings = ExtResource("4_oc2ir")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwx5u7qvhvq3w"]
+
+[ext_resource type="Script" uid="uid://cmstr8yw62iwa" path="res://scripts/Character/MonsterCharacter.gd" id="1_5l4tw"]
+[ext_resource type="Texture2D" uid="uid://ln4j0l6cu0yr" path="res://assets/sprites/Monster/Monster1.png" id="1_imtfh"]
+[ext_resource type="LabelSettings" uid="uid://b6m36x7pvbiyd" path="res://assets/Label/HpBar.tres" id="3_4mw1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7q4"]
+atlas = ExtResource("1_imtfh")
+region = Rect2(0, 480, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6vwd"]
+atlas = ExtResource("1_imtfh")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s77ft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7q4")
+}],
+"loop": false,
+"name": &"attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6vwd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rkga"]
+radius = 132.518
+
+[node name="Monster1" type="CharacterBody2D"]
+script = ExtResource("1_5l4tw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s77ft")
+animation = &"attacked"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_0rkga")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -92.0
+offset_top = -185.0
+offset_right = 93.0
+offset_bottom = -162.667
+text = "name : 10/10"
+label_settings = ExtResource("3_4mw1s")
+horizontal_alignment = 1
+vertical_alignment = 1
