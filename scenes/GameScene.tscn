@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://80waxwjde184"]
+[gd_scene load_steps=12 format=3 uid="uid://80waxwjde184"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/Gameplay/GameManager.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Background/Summer3.png" id="1_xy3my"]
@@ -21,7 +21,13 @@ outline_size = 9
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e8rlm"]
-font_size = 20
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_xs4ih"]
+font = ExtResource("5_xs4ih")
+font_size = 29
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_18ig4")
@@ -110,10 +116,11 @@ text = "Lvl : -"
 label_settings = SubResource("LabelSettings_w22tq")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 73.0
-offset_top = 582.0
-offset_right = 146.0
-offset_bottom = 633.0
+offset_top = 575.0
+offset_right = 165.0
+offset_bottom = 640.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
 layout_mode = 2
@@ -126,7 +133,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(33, 33)
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("7_yrli1")
 expand_mode = 3
@@ -136,3 +143,30 @@ stretch_mode = 5
 layout_mode = 2
 text = "20"
 label_settings = SubResource("LabelSettings_e8rlm")
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 506.0
+offset_top = 86.0
+offset_right = 636.0
+offset_bottom = 184.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer3/MarginContainer"]
+layout_mode = 2
+
+[node name="Stage" type="Label" parent="PanelContainer3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stage 1"
+label_settings = SubResource("LabelSettings_xs4ih")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fight Boss!"
