@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BigNumber="*res://scripts/Data/Big.gd"
 GlobalGold="*res://scripts/Data/Resources.gd"
 Number="*res://scripts/Data/Number.gd"
+BigNumber="*res://scripts/Data/Global.gd"
 
 [gui]
 

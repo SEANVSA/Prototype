@@ -63,7 +63,7 @@ func connectSignal():
 func start_new_game():
 	player = Player.new("Budi",Big.new(UpgradeData.player_base_tap_damage),Big.new(0.01),Big.new(1),Big.new(1),Big.new(0.01),Big.new(0.01))
 	stage = Big.new(1)
-	enemies_per_stage = Big.new(10)
+	enemies_per_stage = Big.new(1)
 	defeated_enemies_this_stage = Big.new(0)
 	updateUI()
 
@@ -97,7 +97,7 @@ func spawn_new_boss():
 func _on_enemy_defeated(enemy_data_object_id: int):
 	GlobalGold.addGold(UpgradeData.get_enemy_gold_reward(stage))
 	defeated_enemies_this_stage.plusEquals(1)
-	if defeated_enemies_this_stage.isGreaterThan(enemies_per_stage):
+	if defeated_enemies_this_stage.isGreaterThanOrEqualTo(enemies_per_stage):
 		spawn_new_boss()
 	else:
 		spawn_new_enemy()

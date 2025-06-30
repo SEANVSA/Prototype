@@ -43,7 +43,7 @@ func updateHealthBar():
 		healthbar.visible = false
 func updateTimer():
 	if boss and timer.time_left>0 and timerLabel:
-		timerLabel.text = "%d s" % ceil(timer.time_left)
+		timerLabel.text = "%d s" % (snappedf(timer.time_left,0.01))
 		timerLabel.visible = true
 	else:
 		timerLabel.visible = false
