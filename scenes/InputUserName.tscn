@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg06nab0wyt24"]
+[gd_scene load_steps=9 format=3 uid="uid://dg06nab0wyt24"]
 
 [ext_resource type="Texture2D" uid="uid://dor4fmckr10c6" path="res://assets/sprites/Background/3. NEW CLOUDS/1.png" id="1_2tvja"]
+[ext_resource type="Script" uid="uid://baubr0df5dg3" path="res://scripts/Gameplay/UserInput.gd" id="1_gayw2"]
 [ext_resource type="Texture2D" uid="uid://cqxpsf71cbr7b" path="res://assets/sprites/Background/3. NEW CLOUDS/2.png" id="2_gayw2"]
 [ext_resource type="Texture2D" uid="uid://dx0eyvbyog4w7" path="res://assets/sprites/Background/3. NEW CLOUDS/3.png" id="3_nxqku"]
 [ext_resource type="Texture2D" uid="uid://bytq18qc8gmyk" path="res://assets/sprites/Background/3. NEW CLOUDS/4.png" id="4_uvdie"]
@@ -11,7 +12,7 @@
 font_size = 21
 
 [node name="InputUserName" type="Node2D"]
-position = Vector2(0, 1)
+script = ExtResource("1_gayw2")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_right = 1152.0
@@ -106,3 +107,5 @@ text = "Confirm"
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_confirm_pressed"]

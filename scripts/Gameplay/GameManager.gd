@@ -68,7 +68,7 @@ func connectSignal():
 	
 
 func start_new_game():
-	player = Player.new("Budi",Big.new(UpgradeData.player_base_tap_damage),Big.new(0.01),Big.new(1),Big.new(1),Big.new(0.01),Big.new(0.01))
+	player = Player.new(UpgradeData.player_name,Big.new(UpgradeData.player_base_tap_damage),Big.new(0.01),Big.new(1),Big.new(1),Big.new(0.01),Big.new(0.01))
 	stage = Big.new(1)
 	enemies_per_stage = Big.new(8)
 	defeated_enemies_this_stage = Big.new(0)
