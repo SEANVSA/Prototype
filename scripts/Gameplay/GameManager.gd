@@ -19,7 +19,7 @@ const BOSS_FOLDER_PATH = "res://scenes/Boss/"
 
 @onready var playerVisual = $Player
 @onready var camera = $Camera2D
-@onready var enemy_spawn_container: Node2D = $EnemySpawnContainer
+@onready var enemy_spawn_container: = $EnemySpawnContainer
 @onready var upgradePanel = $UpgradePanel
 @onready var usenameLabel = $PanelContainer/MarginContainer/VBoxContainer/Username
 @onready var levelLabel = $PanelContainer/MarginContainer/VBoxContainer/Lvl
