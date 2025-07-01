@@ -7,7 +7,8 @@ static var stage: Big = Big.new(1)
 var enemies_per_stage: Big = Big.new(10)
 var defeated_enemies_this_stage: Big = Big.new(0)
 static var player: Player
-var onShop:bool = false
+var onShop: bool = false
+var bossEscaped: bool = false
 
 const MONSTER_FOLDER_PATH = "res://scenes/Monster/"
 const BOSS_FOLDER_PATH = "res://scenes/Boss/"
@@ -18,15 +19,20 @@ const BOSS_FOLDER_PATH = "res://scenes/Boss/"
 
 @onready var playerVisual = $Player
 @onready var camera = $Camera2D
-@onready var enemy_spawn_container: Node2D = $EnemySpawnContainer
+@onready var enemy_spawn_container: = $EnemySpawnContainer
 @onready var upgradePanel = $UpgradePanel
 @onready var usenameLabel = $PanelContainer/MarginContainer/VBoxContainer/Username
 @onready var levelLabel = $PanelContainer/MarginContainer/VBoxContainer/Lvl
 @onready var goldLabel = $PanelContainer2/MarginContainer/HBoxContainer/Coin
 @onready var gold_spawn_container = $PanelContainer2/MarginContainer/HBoxContainer/TextureRect
+@onready var stage_lvl = $PanelContainer3/MarginContainer/VBoxContainer/Stage
+@onready var boss_fight = $PanelContainer3/MarginContainer/VBoxContainer/Button
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	boss_fight.disabled = true
+	boss_fight.visible = false
 	start_new_game()
 	connectSignal()
 	populate_enemy_definitions()
@@ -62,9 +68,9 @@ func connectSignal():
 	
 
 func start_new_game():
-	player = Player.new("Budi",Big.new(UpgradeData.player_base_tap_damage),Big.new(0.01),Big.new(1),Big.new(1),Big.new(0.01),Big.new(0.01))
+	player = Player.new(UpgradeData.player_name,Big.new(UpgradeData.player_base_tap_damage),Big.new(0.01),Big.new(1),Big.new(1),Big.new(0.01),Big.new(0.01))
 	stage = Big.new(1)
-	enemies_per_stage = Big.new(10)
+	enemies_per_stage = Big.new(8)
 	defeated_enemies_this_stage = Big.new(0)
 	updateUI()
 
@@ -100,7 +106,7 @@ func _on_enemy_defeated(enemy_data_object_id: int):
 	GlobalGold.addGold(gold)
 	Number.display_gold(gold, gold_spawn_container.global_position)
 	defeated_enemies_this_stage.plusEquals(1)
-	if defeated_enemies_this_stage.isGreaterThanOrEqualTo(enemies_per_stage):
+	if defeated_enemies_this_stage.isGreaterThanOrEqualTo(enemies_per_stage) and !bossEscaped:
 		spawn_new_boss()
 	else:
 		spawn_new_enemy()
@@ -110,10 +116,14 @@ func _on_boss_defeated(enemy_data_object_id: int):
 	GlobalGold.addGold(gold)
 	Number.display_gold(gold, gold_spawn_container.global_position)
 	stage.plusEquals(1)
+	stage_lvl.text = "Stage "+stage.toAA(true)
 	defeated_enemies_this_stage = Big.new(0)
 	spawn_new_enemy()
 
 func _on_boss_escaped(enemy_data_object_id: int):
+	boss_fight.visible = true
+	boss_fight.disabled = false
+	bossEscaped = true
 	defeated_enemies_this_stage = Big.new(0)
 	spawn_new_enemy()
 	pass
@@ -188,3 +198,11 @@ func updateUI():
 	levelLabel.text = "Lvl : "+player.tap_damage_level.toAA(true)
 	usenameLabel.text = player.name
 	pass
+
+
+func _on_boss_fight_pressed():
+	boss_fight.visible = false
+	boss_fight.disabled = true
+	spawn_new_boss()
+	bossEscaped = false
+	

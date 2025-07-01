@@ -1,4 +1,4 @@
-class_name Chara extends RefCounted
+class_name Chara extends Resource
 var name:String = "Unnamed"
 var damage:Big 
 
