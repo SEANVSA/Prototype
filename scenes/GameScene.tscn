@@ -1,16 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy8kug6ywk2j8"]
+[gd_scene load_steps=15 format=3 uid="uid://dy8kug6ywk2j8"]
 
 [ext_resource type="Script" uid="uid://d34r5fxhnmgih" path="res://scripts/Gameplay/GameManager.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://dm8dwxdasd8tb" path="res://assets/sprites/Background/Summer3.png" id="1_xy3my"]
-[ext_resource type="PackedScene" uid="uid://cn01krqxr2l4n" path="res://scenes/Player.tscn" id="3_7s5hy"]
-[ext_resource type="Texture2D" uid="uid://cu4bjjhvwg3io" path="res://assets/sprites/2303.w032.n002.902A.p30.902.png" id="4_6ytau"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="3_7s5hy"]
+[ext_resource type="Theme" uid="uid://bdbnr3bi460th" path="res://assets/Theme/SmallButton.tres" id="4_pynjx"]
+[ext_resource type="Texture2D" uid="uid://c7gt44pxp35b7" path="res://assets/sprites/UI/UI assets Demo (3x).png" id="4_vijgj"]
 [ext_resource type="FontFile" uid="uid://ik8a8gxnai53" path="res://assets/fonts/VecnaBold-4YY4.ttf" id="5_xs4ih"]
 [ext_resource type="PackedScene" uid="uid://b4awid2g5vvp1" path="res://scenes/UpgradePanel.tscn" id="7_6ytau"]
+[ext_resource type="Theme" uid="uid://cdptbwd50npv1" path="res://assets/Theme/Button.tres" id="7_pynjx"]
 [ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="7_yrli1"]
+[ext_resource type="PackedScene" uid="uid://ba48jrp0i1me3" path="res://scenes/UpgradeHeroes.tscn" id="10_yrli1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j40tv"]
-atlas = ExtResource("4_6ytau")
-region = Rect2(270.55, 248.481, 2615.76, 1740.58)
+atlas = ExtResource("4_vijgj")
+region = Rect2(297, 9, 126, 126)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w22tq"]
 font = ExtResource("5_xs4ih")
@@ -66,27 +69,29 @@ position = Vector2(865, 453)
 
 [node name="Shop" type="Button" parent="."]
 offset_left = 17.0
-offset_top = 582.0
-offset_right = 68.0
-offset_bottom = 634.0
-text = "🛒"
+offset_top = 566.0
+offset_right = 124.0
+offset_bottom = 635.0
+theme = ExtResource("4_pynjx")
+text = "Shop"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 22.0
+offset_left = 16.0
 offset_top = 10.0
-offset_right = 214.0
-offset_bottom = 92.0
+offset_right = 197.0
+offset_bottom = 175.0
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
+size_flags_stretch_ratio = 0.0
 texture = SubResource("AtlasTexture_j40tv")
-expand_mode = 3
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
@@ -95,22 +100,20 @@ layout_mode = 2
 
 [node name="Username" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 6
 text = "Username"
 label_settings = SubResource("LabelSettings_w22tq")
 
 [node name="Lvl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 6
 text = "Lvl : -"
 label_settings = SubResource("LabelSettings_w22tq")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 73.0
-offset_top = 575.0
-offset_right = 165.0
-offset_bottom = 640.0
+offset_left = 134.0
+offset_top = 577.0
+offset_right = 229.0
+offset_bottom = 642.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
 layout_mode = 2
@@ -118,6 +121,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/MarginContainer"]
 layout_mode = 2
@@ -158,9 +162,24 @@ label_settings = SubResource("LabelSettings_xs4ih")
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer3/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-text = "Fight Boss!"
+theme = ExtResource("7_pynjx")
+text = "Boss"
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(25, 0)
+offset_left = 20.0
+offset_top = 493.0
+offset_right = 121.0
+offset_bottom = 562.0
+theme = ExtResource("4_pynjx")
+text = "Heroes"
+
 [node name="UpgradePanel" parent="." instance=ExtResource("7_6ytau")]
 position = Vector2(0, 650)
+
+[node name="UpgradeHeroes" parent="." instance=ExtResource("10_yrli1")]
+position = Vector2(0, 1319)
 
 [connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]

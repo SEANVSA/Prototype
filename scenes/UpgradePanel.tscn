@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4awid2g5vvp1"]
+[gd_scene load_steps=15 format=3 uid="uid://b4awid2g5vvp1"]
 
 [ext_resource type="Script" uid="uid://cnsgygwcs0cfl" path="res://scripts/Gameplay/UpgradePanel.gd" id="1_51cro"]
 [ext_resource type="Texture2D" uid="uid://bk1ddcr6vrbf0" path="res://assets/sprites/882.jpg" id="2_7y048"]
-[ext_resource type="Texture2D" uid="uid://bg5pniehovvye" path="res://assets/sprites/25498.png" id="2_lr558"]
 [ext_resource type="Texture2D" uid="uid://dskmxlkcdw8w6" path="res://assets/sprites/Upgrade/slash_icon.png" id="3_0fwnl"]
 [ext_resource type="Texture2D" uid="uid://doolw3py4gjkl" path="res://assets/sprites/Upgrade/Crit.png" id="4_f1j35"]
+[ext_resource type="PackedScene" uid="uid://dw0vc3xk4s8le" path="res://scenes/Currency/Coin.tscn" id="4_molgr"]
 [ext_resource type="Texture2D" uid="uid://cv01lda4p8neu" path="res://assets/sprites/Upgrade/CritChance_icon.png" id="5_7y048"]
+[ext_resource type="Theme" uid="uid://bdbnr3bi460th" path="res://assets/Theme/SmallButton.tres" id="5_molgr"]
 [ext_resource type="Texture2D" uid="uid://dv6604xjltu0v" path="res://assets/sprites/Upgrade/DoubleSlash.png" id="6_f1j35"]
 [ext_resource type="Texture2D" uid="uid://c48uthykcwv88" path="res://assets/sprites/Upgrade/TripleSlash.png" id="7_7y048"]
+[ext_resource type="Theme" uid="uid://b3wynph1krpwm" path="res://assets/Theme/Button2.tres" id="7_molgr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gcgyr"]
 font_size = 25
@@ -21,15 +23,12 @@ font_size = 18
 [sub_resource type="LabelSettings" id="LabelSettings_unbvk"]
 font_size = 22
 
-[sub_resource type="LabelSettings" id="LabelSettings_wet4u"]
-font_size = 14
-
 [node name="UpgradePanel" type="Node2D"]
 script = ExtResource("1_51cro")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 669.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -66,7 +65,8 @@ custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.23
-text = "Exit"
+theme = ExtResource("7_molgr")
+text = "Back"
 
 [node name="Tap DMG Player" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -76,7 +76,7 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "- Tap Dmg"
+text = "Tap Dmg"
 label_settings = SubResource("LabelSettings_gcgyr")
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player"]
@@ -85,12 +85,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2_lr558")
-expand_mode = 1
-stretch_mode = 5
+[node name="Coin2" parent="PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player" instance=ExtResource("4_molgr")]
+position = Vector2(1076, 20)
 
 [node name="Coin" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Tap DMG Player"]
 layout_mode = 2
@@ -106,10 +102,11 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
 [node name="BuyCountButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/BuyCountBox"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.9
-text = "Buy 1x"
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_molgr")
+text = "1x"
 
 [node name="Upgrade 1 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -154,53 +151,19 @@ size_flags_stretch_ratio = 3.0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
+theme = ExtResource("7_molgr")
 
-[node name="Price&DPSIncrease 1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -22.5
-offset_right = 20.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Coin" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button" instance=ExtResource("4_molgr")]
+position = Vector2(87, 44)
 
-[node name="Upgrade1Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1"]
+[node name="Price1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button"]
 layout_mode = 2
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/Upgrade1Price"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("2_lr558")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Price1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/Upgrade1Price"]
-layout_mode = 2
+offset_left = 110.0
+offset_top = 28.0
+offset_right = 123.0
+offset_bottom = 58.7083
 text = "7"
 label_settings = SubResource("LabelSettings_unbvk")
-
-[node name="DPSIncrease 1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/DPSIncrease 1"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Level Up"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
-
-[node name="DPS" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 1 Box/Upgrade 1 Button/Price&DPSIncrease 1/DPSIncrease 1"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "+1.2 DPS"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
 
 [node name="Upgrade 2 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -244,52 +207,19 @@ size_flags_stretch_ratio = 3.0
 [node name="Upgrade 2 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("7_molgr")
 
-[node name="Price&DPSIncrease 2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -22.5
-offset_right = 20.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Upgrade2Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2"]
+[node name="Price2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button"]
 layout_mode = 2
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/Upgrade2Price"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("2_lr558")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Price2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/Upgrade2Price"]
-layout_mode = 2
+offset_left = 106.0
+offset_top = 26.0
+offset_right = 132.0
+offset_bottom = 56.7083
 text = "20"
 label_settings = SubResource("LabelSettings_unbvk")
 
-[node name="DPSIncrease 2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/DPSIncrease 2"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Level Up"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
-
-[node name="DPS 2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button/Price&DPSIncrease 2/DPSIncrease 2"]
-layout_mode = 2
-text = "+1%"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
+[node name="Coin" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 2 Box/Upgrade 2 Button" instance=ExtResource("4_molgr")]
+position = Vector2(86, 41)
 
 [node name="Upgrade 3 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -333,52 +263,19 @@ size_flags_stretch_ratio = 3.0
 [node name="Upgrade 3 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("7_molgr")
 
-[node name="Price&ChanceIncrease 1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -22.5
-offset_right = 20.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Coin" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button" instance=ExtResource("4_molgr")]
+position = Vector2(91, 42)
 
-[node name="Upgrade3Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1"]
+[node name="Price3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button"]
 layout_mode = 2
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/Upgrade3Price"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("2_lr558")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Price3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/Upgrade3Price"]
-layout_mode = 2
+offset_left = 107.0
+offset_top = 27.0
+offset_right = 145.0
+offset_bottom = 57.7083
 text = "100"
 label_settings = SubResource("LabelSettings_unbvk")
-
-[node name="ChanceIncrease 1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/ChanceIncrease 1"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Level Up"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
-
-[node name="Chance 1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 3 Box/Upgrade 3 Button/Price&ChanceIncrease 1/ChanceIncrease 1"]
-layout_mode = 2
-text = "+0.1%"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
 
 [node name="Upgrade 4 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -422,53 +319,19 @@ size_flags_stretch_ratio = 3.0
 [node name="Upgrade 4 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("7_molgr")
 
-[node name="Price&ChanceIncrease 3" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -22.5
-offset_right = 20.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Coin" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button" instance=ExtResource("4_molgr")]
+position = Vector2(88, 40)
 
-[node name="Upgrade4Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3"]
+[node name="Price4" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button"]
 layout_mode = 2
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/Upgrade4Price"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("2_lr558")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Price4" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/Upgrade4Price"]
-layout_mode = 2
+offset_left = 108.0
+offset_top = 25.0
+offset_right = 134.0
+offset_bottom = 55.7083
 text = "25"
 label_settings = SubResource("LabelSettings_unbvk")
-
-[node name="ChacneIncrease 3" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/ChacneIncrease 3"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Level Up"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
-
-[node name="Chance" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 4 Box/Upgrade 4 Button/Price&ChanceIncrease 3/ChacneIncrease 3"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "+0.5%"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
 
 [node name="Upgrade 5 Box" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -512,53 +375,19 @@ size_flags_stretch_ratio = 3.0
 [node name="Upgrade  5 Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("7_molgr")
 
-[node name="Price&ChanceIncrease 4" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -22.5
-offset_right = 20.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Upgrade5Price" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4"]
+[node name="Price5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button"]
 layout_mode = 2
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/Upgrade5Price"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("2_lr558")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Price5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/Upgrade5Price"]
-layout_mode = 2
+offset_left = 114.0
+offset_top = 23.0
+offset_right = 140.0
+offset_bottom = 53.7083
 text = "80"
 label_settings = SubResource("LabelSettings_unbvk")
 
-[node name="ChanceIncrease 4" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/ChanceIncrease 4"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Level Up"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
-
-[node name="Chance" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button/Price&ChanceIncrease 4/ChanceIncrease 4"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "+0.5%"
-label_settings = SubResource("LabelSettings_wet4u")
-horizontal_alignment = 1
+[node name="Coin" parent="PanelContainer/MarginContainer/VBoxContainer/Upgrade 5 Box/Upgrade  5 Button" instance=ExtResource("4_molgr")]
+position = Vector2(96, 39)
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Exit/Button" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BuyCountBox/BuyCountButton" to="." method="_on_buy_count_button_pressed"]

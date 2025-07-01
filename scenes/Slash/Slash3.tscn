@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://c16wqe63jwode"]
+
+[ext_resource type="Texture2D" uid="uid://cfj82p1k1romq" path="res://assets/sprites/Slash/Slash3.png" id="1_u71ss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdg3p"]
+atlas = ExtResource("1_u71ss")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r00ej"]
+atlas = ExtResource("1_u71ss")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omkvd"]
+atlas = ExtResource("1_u71ss")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi81t"]
+atlas = ExtResource("1_u71ss")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68upa"]
+atlas = ExtResource("1_u71ss")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itmej"]
+atlas = ExtResource("1_u71ss")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upbqq"]
+atlas = ExtResource("1_u71ss")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0kf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdg3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r00ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omkvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi81t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68upa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itmej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upbqq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5m73"]
+radius = 16.0
+height = 48.0
+
+[node name="Slash3" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.335938, 0.328125)
+sprite_frames = SubResource("SpriteFrames_w0kf5")
+frame_progress = 0.109923
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-3, 0)
+shape = SubResource("CapsuleShape2D_e5m73")

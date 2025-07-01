@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3tti7gyldh5n"
-path="res://.godot/imported/wooden-gold-buttons-ui-game.png-7a91235318f94580a57e66909464dc85.ctex"
+uid="uid://dmmhyogg6uebo"
+path="res://.godot/imported/Slash2.png-14ec61626c8a0cba471db8d2d926a5ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/wooden-gold-buttons-ui-game.png"
-dest_files=["res://.godot/imported/wooden-gold-buttons-ui-game.png-7a91235318f94580a57e66909464dc85.ctex"]
+source_file="res://assets/sprites/Slash/Slash2.png"
+dest_files=["res://.godot/imported/Slash2.png-14ec61626c8a0cba471db8d2d926a5ba.ctex"]
 
 [params]
 
